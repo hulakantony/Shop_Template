@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Template Home</title>
 	<link rel="stylesheet" href="css/home.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="main-wrapper">
@@ -18,7 +19,7 @@
 						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="" class="shopping-bag">Bag</a></li>
 					</ul>
 					<div class="menu-phone">
-						<a href=""><img src="img/home/phone/ico_menu.png" alt=""></a>
+						<a href=""><img class="menu-ico" src="img/home/phone/ico_menu.png" alt=""></a>
 					</div>
 				</div>
 				<nav class="menu-search">
@@ -34,10 +35,27 @@
 						<li><input type="search" placeholder="Style Name" class="search-input">
 						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a></li>
 					</ul>
-				</nav>
+				</nav>				
 				</div>				
 			</div>			
 		</header>
+		<div class="dropdown-menu-wrap">
+			<div class="content-wrap">	
+				<ul class="dropdown-menu">
+					<li><a href="">Women</a></li>
+					<li><a href="">Men</a></li>
+					<li><a href="">Handbags</a></li>
+					<li><a href="">Accessories</a></li>
+					<li><a href="">Sale</a></li>
+					<li><a href="">New Arrivals</a></li>
+					<li><a href="">Clearance</a></li>
+					<li><a href="">Store Locator</a></li>
+					<li><input type="search" placeholder="Style Name" class="search-input">
+						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<main>
 			<section class="carousel-container">
 				<div class="carousel-wrap">
@@ -45,19 +63,19 @@
 						<li><a href=""><img src="img/home/desctop/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/desctop/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/desctop/carousel_3.jpg" alt=""></a></li>
 					</ul>
 					<ul class="carousel-tablet">
 						<li><a href=""><img src="img/home/tablet/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/tablet/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/tablet/carousel_3.jpg" alt=""></a></li>
 					</ul>
 					<ul class="carousel-phone">
 						<li><a href=""><img src="img/home/phone/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/phone/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/phone/carousel_3.jpg" alt=""></a></li>
 					</ul>
 					<ol class="points">
 						<li><a class="active"></a></li>
@@ -68,17 +86,11 @@
 				</div>
 			</section>
 			<section class="banners-wrap">
-				<div class="left-banner banner"><a href=""><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>
-					<!--<div class="banner-text">
-						<h3>Nike Red</h3>
-						<p>New</p>
-					</div>	-->			
+				<div class="left-banner banner">
+					<a href=""><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>					
 				</div>
-				<div class="right-banner banner"><a href=""><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>
-					<!--<div class="banner-text">
-						<h3>Caps & Hats</h3>
-						<p>Sale -50%</p>
-					</div>-->
+				<div class="right-banner banner">
+					<a href=""><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>					
 				</div>
 									<!--TABLET BANNER-->
 				<div class="left-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_left.jpg" alt=""></a></div>
@@ -230,6 +242,20 @@
 			</div>
 		</footer>
 	</div>
-	
+<script>
+	var menuButton = document.querySelector('.menu-phone a');
+	var dropMenu = document.querySelector('.dropdown-menu-wrap');
+	var menuImage = document.querySelector('.menu-ico');
+	var pressed = false;
+	menuButton.onclick = function(e){
+		dropMenu.classList.toggle('pressed');
+		if(dropMenu.classList.contains('pressed')){
+			menuImage.src = 'img/home/phone/ico_close.png';
+		} else{
+			menuImage.src = 'img/home/phone/ico_menu.png';
+		}		
+		return false;
+	}
+</script>
 </body>
 </html>
