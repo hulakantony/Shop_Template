@@ -177,52 +177,54 @@ input.search-input{
 					/*------HEADER END-------*/
 
 					/*------CAROUSEL START-------*/
-
-.carousel-container{
-	clear: both;	
-	width: 100%;		
-}
-.carousel-wrap{
-	margin: 0 auto;
-	width: 100%;		
-	position: relative;	
-}
-ul.carousel-desctop{	
-	position: relative;	
-	overflow: hidden;
-	width: 100%;
-}
 ul.carousel-tablet{
 	display: none;
 }
-.carousel-desctop li{	
-	width: 100%;
-	-webkit-backface-visibility: hidden;
-    float: left;
-    position: absolute;
-    display: none;   
-    left: 0;
-    top: 0;
-}
-.carousel-desctop li:first-child{
-	position: relative;
-	display: block;
-	float: left;
-}
-.carousel-desctop li img{
+.carousel-container{
+	clear: both;	
 	width: 100%;	
-	cursor: pointer;
-	display: block;
-	//float: left;
+	height: 100%;
+	position: relative;
+}
+.carousel-wrap{
+	padding-bottom: 65.2%;
+	width: 100%;		
+	position: relative;	
+	overflow: hidden;
+}
+.carousel{	
+	position: absolute;	
+	height: 100%;
+	width: 400%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	transition: left .5s ease-out;
+	-o-transition: left .5s ease-out;
+	-ms-transition: left .5s ease-out;
+	-moz-transition: left .5s ease-out;
+	-webkit-transition: left .5s ease-out;
+}
+.carousel li{	
+	width: 25%
+	height: 100%;	
+	display: inline;
+	padding: 0;	
+}
+.carousel li img{
+	width: 25%;	
+	display: block;	
 	height: auto;
+	display: inline;
+	margin-right: -4px;	
 }
 .points{
 	position: absolute;
-	text-align: center;
-	margin: 0 auto;
+	text-align: center;	
 	list-style: none;
-	width: 100%;
-	bottom: 4.47%;	
+	width: 100%;	
+	bottom: 4.4%;	
+	z-index: 2;
 }
 .points li{
 	display: inline-block;
@@ -240,9 +242,13 @@ ul.carousel-tablet{
 .points li:last-child a{
 	margin-right: 0;
 }
-.points a.active{
+.points li a.active{
 	background-color: #f14a58;
 }
+.points li a:hover{
+	background: black;
+}
+
 
 					/*------CAROUSEL END-------*/
 
@@ -270,7 +276,8 @@ ul.carousel-tablet{
 }
 .banner img{
 	border-bottom: 1px solid #e5e5e5;
-	width: 100%;		
+	width: 100%;	
+	border-top: 1px solid #e5e5e5;	
 }
 .right-banner-tablet{
 	display: none;
@@ -483,7 +490,7 @@ footer{
 }
 .footer-nav{
 	float: right;	
-	margin-top: -20px;	
+	margin-top: -18px;	
 }
 .footer-nav ul li{
 	display: inline;
@@ -504,10 +511,10 @@ footer{
 .menu-phone{
 	display: none;
 }
-.carousel-phone{
+footer.phone-footer{
 	display: none;
 }
-footer.phone-footer{
+.carousel-phone{
 	display: none;
 }
 					/*------FOOTER END-------*/
@@ -524,36 +531,6 @@ footer.phone-footer{
 	}
 	input.search-input{
 		display: none;
-	}
-	ul.carousel-tablet{	
-		position: relative;	
-		overflow: hidden;
-		width: 100%;
-		display: block;
-	}
-	ul.carousel-desctop{
-		display: none;
-	}
-	.carousel-tablet li{	
-		width: 100%;
-		-webkit-backface-visibility: hidden;
-	    float: left;
-	    position: absolute;
-	    display: none;   
-	    left: 0;
-	    top: 0;
-	}
-	.carousel-tablet li:first-child{
-		position: relative;
-		display: block;
-		float: left;
-	}
-	.carousel-tablet li img{
-		width: 100%;	
-		cursor: pointer;
-		display: block;
-		float: left;
-		height: auto;
 	}
 	.points{	
 		bottom: 2.75%;	
@@ -691,8 +668,9 @@ footer.phone-footer{
 		width: 35px;
 		height: 18px;
 	}
+	
 }
-@media screen and (min-width: 480px) and (max-width: 590px){
+@media screen and (min-width: 480px) and (max-width: 600px){
 	.menu li a{
 		font-size: 10px;;
 	}
@@ -702,12 +680,15 @@ footer.phone-footer{
 	.questions a{
 		font-size: 0.8125em;
 	}
-}
-
-@media screen and (min-width: 480px) and (max-width: 530px){
 	.footer-nav ul li a{	
 		font-size: 0.625em;
 	}
+	.copyright{
+		font-size: 0.625em;
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width: 530px){	
 	.footer-nav ul li{
 		margin-left: 7px;
 	}
@@ -716,10 +697,7 @@ footer.phone-footer{
 	}
 	.share-count p{
 		padding-top: 3px;
-	}
-	.copyright{
-		font-size: 0.625em;
-	}
+	}	
 }
 					/*------TABLET MEDIA QUERIES END-------*/
 
@@ -728,6 +706,12 @@ footer.phone-footer{
 @media all and (max-width: 480px){
 	.content-wrap{
 		width: 89.3333%;
+	}
+	ul.carousel-tablet{
+		display: none;
+	}
+	ul.carousel-desctop{
+		display: none;
 	}
 	body{
 		min-width: 240px;
@@ -767,39 +751,14 @@ footer.phone-footer{
 		padding-left: 20px;
 		border-left: 1px solid #e5e5e5;
 	}
-	.carousel-desctop{
-		display: none;
-	}
+	
 	.carousel-phone{
 		display: block;
+	}	
+	.carousel-wrap{
+		padding-bottom: 141%;		
 	}
-	ul.carousel-phone{	
-		position: relative;	
-		overflow: hidden;
-		width: 100%;
-		display: block;
-	}
-	.carousel-phone li{	
-		width: 100%;
-		-webkit-backface-visibility: hidden;
-	    float: left;
-	    position: absolute;
-	    display: none;   
-	    left: 0;
-	    top: 0;
-	}
-	.carousel-phone li:first-child{
-		position: relative;
-		display: block;
-		float: left;
-	}
-	.carousel-phone li img{
-		width: 100%;	
-		cursor: pointer;
-		display: block;
-		float: left;
-		height: auto;
-	}
+	
 	.left-banner, .right-banner{
 		display: none;
 	}
@@ -982,7 +941,7 @@ footer.phone-footer{
 	}
 /*------------------DROPDOWN MENU FOR PHONE----------------------------*/
 }
-@media screen and (max-width: 330px){
+@media screen and (max-width: 340px){
 	.share{
 		float: none;
 		margin: 0 auto;
@@ -1012,7 +971,7 @@ footer.phone-footer{
 	.footer-nav-phone ul li a{
 		font-size: 0.5625em;
 	}
-	.social-icons-phone ul li{
+	.social-icons-phone ul li:last-child{
 		margin-left: 8px;
 	}
 	.info-block h3{
