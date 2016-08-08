@@ -77,7 +77,7 @@ table {
 body{
 	width: 100%;
 	font-size: 16px;
-	min-width: 240px;	
+	min-width: 375px;	
 }
 a{
 	text-decoration: none;
@@ -909,7 +909,7 @@ footer.phone-footer{
 	.share-count{
 		font-size: 0.625em;
 	}
-/*------------------DROPDOWN MENU FOR PHONE----------------------------*/
+/*------------------DROPDOWN MENU FOR PHONE-START---------------------------*/
 	.dropdown-menu-wrap{				
 		display: none;
 		border-top: 1px solid #e5e5e5;
@@ -940,47 +940,7 @@ footer.phone-footer{
 	.pressed{
 		display: block;
 	}
-/*------------------DROPDOWN MENU FOR PHONE----------------------------*/
-}
-@media screen and (max-width: 340px){
-	.share{
-		float: none;
-		margin: 0 auto;
-		padding-top: 0;
-	}
-	.copyright{
-		width: 200px;
-		float: none;
-		margin: 25px auto;		
-	}	
-}
-@media screen and (max-width: 290px){
-	.info-block h3{
-		font-size: 0.8125em;
-	}
-	.footer-nav-phone ul li{
-		margin-right: 8px;
-	}
-	.social-icons-phone ul li{
-		margin-left: 15px;
-	}
-}
-@media screen and (max-width: 260px){
-	.footer-nav-phone ul li{
-		margin-right: 5px;
-	}
-	.footer-nav-phone ul li a{
-		font-size: 0.5625em;
-	}
-	.social-icons-phone ul li:last-child{
-		margin-left: 8px;
-	}
-	.info-block h3{
-		font-size: 0.75em;
-	}
-	.info-block ul li a{
-		font-size: 0.625em;
-	}
+/*------------------DROPDOWN MENU FOR PHONE END----------------------------*/
 
-}
+
 					/*------MOBILE MEDIA QUERIES END-------*/	

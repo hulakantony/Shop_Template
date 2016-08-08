@@ -77,7 +77,7 @@ table {
 body{
 	width: 100%;
 	font-size: 16px;
-	min-width: 240px;	
+	min-width: 375px;	
 }
 a{
 	text-decoration: none;
@@ -94,7 +94,6 @@ header{
 	max-width: 1180px;	
 	margin: 0 auto;		
 }
-
 .logo h1{
 	font-family: 'FuturaPTHeavy', sans-serif;
 	font-size: 1.875em;
@@ -126,13 +125,11 @@ ul.menu{
 	font-size: 14px;
 	text-decoration: none;
 	color: #000;	
-	word-wrap: normal;
-	
+	word-wrap: normal;	
 }
 .menu li a:hover, .menu li a:active{
 	color: red;
 }
-
 .mail-bag{
 	margin-top: 28px;
 	float: right;
@@ -140,7 +137,6 @@ ul.menu{
 .mail-bag li{
 	display: inline-block;
 }
-
 .mail-bag li a{
 	text-decoration: none;
 	color: #000;
@@ -157,7 +153,6 @@ ul.menu{
 .mail-bag li:last-child{
 	margin-left: 55px;
 }
-
 input.search-input{
 	border: none;
 	border-bottom: 2px solid #e5e5e5;
@@ -174,6 +169,9 @@ input.search-input{
 .dropdown-menu-wrap{
 	display: none;
 }
+.menu .now{
+	color: red;
+}
 					/*------HEADER END-------*/
 
 					/*------FILTER START-------*/
@@ -187,9 +185,9 @@ input.search-input{
 }
 .filter-block li{
 	width: 16.666666%;
-	float: left;
-	//padding-top: 20px;
+	float: left;	
 	cursor: pointer;
+	position: relative
 }
 .filter-block li p{
 	float: left;	
@@ -211,9 +209,33 @@ input.search-input{
 	padding-right: 0;
 }
 .select-filter{
+	position: absolute;
+	top: 64px;
+	background: #fff;
 	display: none;
+	z-index: 1;
+	border: 1px solid #e5e5e5;
 }
-
+.select-filter li{
+	width: 100%;
+	padding: 20px 0;
+	border-bottom: 1px solid #e5e5e5;	
+}
+.select-filter li:last-child{
+	border: none;
+}
+.select-filter li a{
+	padding-left: 10.16949%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.125em;
+	font-weight: bold;
+}
+.filter-block li:first-child li a{
+	padding-left: 0;
+}
+.open{
+	display: block;
+}
 
 					/*------FILTER END-------*/
 
@@ -232,7 +254,7 @@ input.search-input{
 	display: inline-block;	
 	width: 20%;
 	vertical-align: top;
-	margin-right: 6.18%;
+	margin-right: 6.18%;	
 }
 .item img{
 	width: 100%;
@@ -327,6 +349,44 @@ input.search-input{
 	font-weight: bold;	
 	cursor: pointer;
 }
+.img-caption{
+	position: relative;
+}
+.caption{
+	display:block;
+	background:rgba(0,0,0,0.3);
+	text-align: center;
+	color:#fff;
+	width: 100%;
+	height: 99%;	
+	position:absolute;
+	top: 0;
+	overflow:hidden;	
+	opacity:0;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	-o-transition:all .5s ease-in-out;
+	-ms-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out;	
+}
+.img-caption:hover .caption{	
+	width: 100%;	
+	height: 99%;
+	opacity:1;	
+}
+.caption a{
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.375em;
+	color: #fff;
+	font-weight: bold;
+}
+.caption a:hover{
+	color: #c82749;
+}
+.caption a:first-child{
+	margin: 130px 0 30px 0;
+}
 			
 
 					/*------CATALOG END-------*/
@@ -357,7 +417,11 @@ input.search-input{
 .banner img{
 	width: 100%;	
 	border-bottom: 1px solid #e5e5e5;
-	height: 100%;	
+	height: 101%;
+	border-right: 1px solid #e5e5e5;	
+}
+.right-banner img{
+	border-right: none;	
 }
 .right-banner-tablet{
 	display: none;
@@ -377,6 +441,7 @@ input.search-input{
 	border-bottom: 1px solid #e5e5e5;
 	height: 450px;
 	clear: both;
+	
 }
 .info-block{
 	float: left;	
@@ -920,7 +985,7 @@ footer.phone-footer{
 	.share-count{
 		font-size: 0.625em;
 	}
-/*------------------DROPDOWN MENU FOR PHONE----------------------------*/
+/*------------------DROPDOWN MENU FOR PHONE START----------------------------*/
 	.dropdown-menu-wrap{				
 		display: none;
 		border-top: 1px solid #e5e5e5;
@@ -951,47 +1016,7 @@ footer.phone-footer{
 	.pressed{
 		display: block;
 	}
-/*------------------DROPDOWN MENU FOR PHONE----------------------------*/
+/*------------------DROPDOWN MENU FOR PHONE END----------------------------*/
 }
-@media screen and (max-width: 340px){
-	.share{
-		float: none;
-		margin: 0 auto;
-		padding-top: 0;
-	}
-	.copyright{
-		width: 200px;
-		float: none;
-		margin: 25px auto;		
-	}	
-}
-@media screen and (max-width: 290px){
-	.info-block h3{
-		font-size: 0.8125em;
-	}
-	.footer-nav-phone ul li{
-		margin-right: 8px;
-	}
-	.social-icons-phone ul li{
-		margin-left: 15px;
-	}
-}
-@media screen and (max-width: 260px){
-	.footer-nav-phone ul li{
-		margin-right: 5px;
-	}
-	.footer-nav-phone ul li a{
-		font-size: 0.5625em;
-	}
-	.social-icons-phone ul li:last-child{
-		margin-left: 8px;
-	}
-	.info-block h3{
-		font-size: 0.75em;
-	}
-	.info-block ul li a{
-		font-size: 0.625em;
-	}
 
-}
 					/*------MOBILE MEDIA QUERIES END-------*/	
