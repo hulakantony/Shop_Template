@@ -57,22 +57,28 @@
 			</div>
 		</div>
 		<main>
-			<section class="filter">
+			<section class="filter">			
 				<div class="content-wrap">
 					<ul class="filter-block">
-						<li>
-							<p>Fashion</p>
+						<li class="options">
+							<div class="option-title">
+								<p>Fashion</p>
+								<p class="selected"></p>
+							</div>
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
-								<li><a href="" onclick="return false">Elegant</a></li>
+								<li><a href="">Elegant</a></li>
 								<li><a href="">Casual Style</a></li>
 								<li><a href="">Smart</a></li>
 								<li><a href="">Chic</a></li>
 								<li><a href="">Scruffy</a></li>
 							</ul>
 						</li>
-						<li>							
-							<p>Product type</p>							
+						<li class="options">
+							<div class="option-title">							
+								<p>Product type</p>	
+								<p class="selected"></p>
+							</div>						
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
 								<li><a href="">Overclothes</a></li>
@@ -82,8 +88,11 @@
 								<li><a href="">Knitwear</a></li>
 							</ul>
 						</li>
-						<li>
-							<p>Color</p>
+						<li class="options">
+							<div class="option-title">							
+								<p>Color</p>
+								<p class="selected"></p>
+							</div>							
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
 								<li><a href="">Green</a></li>
@@ -96,8 +105,11 @@
 								<li><a href="">Brown</a></li>
 							</ul>
 						</li>
-						<li>
-							<p>Brand</p>
+						<li class="options">
+							<div class="option-title">							
+								<p>Brand</p>
+								<p class="selected"></p>
+							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
 								<li><a href="">Antipodium</a></li>
@@ -108,8 +120,11 @@
 								<li><a href="">Bershka</a></li>
 							</ul>
 						</li>
-						<li>
-							<p>Size</p>
+						<li class="options">
+							<div class="option-title">							
+								<p>Size</p>
+								<p class="selected"></p>
+							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
 								<li><a href="">UK 12</a></li>
@@ -120,8 +135,11 @@
 								<li><a href="">UK 22</a></li>
 							</ul>
 						</li>
-						<li>
-							<p>Price-range</p>
+						<li class="options">
+							<div class="option-title">							
+								<p>Price-range</p>
+								<p class="selected"></p>
+							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
 								<li><a href="">50-100</a></li>
@@ -132,11 +150,20 @@
 							</ul>
 						</li>
 					</ul>
+					<ul class="tablet-filter">
+						<li class="fashion">Fashion,</li>
+						<li class="product-type">Product type,</li>
+						<li class="color">Color,</li>
+						<li class="brand">Brand,</li>
+						<li class="size">Size,</li>
+						<li class="price-range">Price range</li>
+						<li><img src="img/women/desctop/ico_arrow.png" alt=""></li>
+					</ul>
 				</div>
 			</section>
 			<section class="catalog-wrap">
 				<div class="content-wrap">
-					<section class="top-items">
+					<section class="items">
 						<article class="item">
 							<div class="img-caption">
 								<img src="img/women/desctop/item_1.jpg" alt="">
@@ -189,12 +216,12 @@
 							</a>
 							<p class="item-price">£80.60</p>
 						</article>
-					</section>
+					
 					<section class="item-banner">
 						<h2>Last weekend <span>extra 50%</span> off on all reduced boots and shoulder bags</h2>
 						<p>This offer is valid in-store and online. Prices displayed reflect this additional discount. This offer ends at 11:59 GMT on March 1st 2015</p>
 					</section>
-					<section class="middle-items">
+					
 						<article class="item">							
 							<div class="img-caption">
 								<img src="img/women/desctop/item_5.jpg" alt="">
@@ -248,8 +275,8 @@
 							</a>
 							<p class="item-price">£24.75</p>
 						</article>
-					</section>
-					<section class="bottom-items">
+				
+					
 						<article class="item">
 							<div class="img-caption">
 								<img src="img/women/desctop/item_9.jpg" alt="">
@@ -304,12 +331,15 @@
 							</a>
 							<p class="item-price">£85.75</p>
 						</article>
-					</section>
+					
+					
 					<section class="show-more-wrap">
 						<button class="show-more-btn">Show more</button>
 					</section>
+				</section>
 				</div>
 			</section>
+
 			<section class="banners-wrap">
 				<div class="left-banner banner">
 					<a href=""><img src="img/women/desctop/banner_1.jpg" alt=""></a>					
@@ -322,8 +352,8 @@
 				</div>
 									<!--TABLET BANNER-->
 
-				<div class="left-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_left.jpg" alt=""></a></div>
-				<div class="right-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_right_1.jpg" alt=""></a></div>
+				<div class="left-banner-tablet banner"><a href=""><img src="img/women/tablet/banner_1.jpg" alt=""></a></div>
+				<div class="right-banner-tablet banner"><a href=""><img src="img/women/tablet/banner_2.jpg" alt=""></a></div>
 
 									<!--PHONE BANNER-->
 
@@ -434,7 +464,7 @@
 		</footer>
 	</div>
 <script>
-	var filterLis = document.querySelectorAll('.filter-block li');
+	/*var filterLis = document.querySelectorAll('.filter-block li');
 	function openRoll(e){
 		var target = e.target;
 		if(target.tagName !== 'LI'){
@@ -445,22 +475,71 @@
 	}
 	for(var i =0; i<filterLis.length; i++){
 		filterLis[i].addEventListener('click', openRoll);
-	}
+	}*/
+
+
+	var firstChildSelected = false;
+	var lastChildSelected = false;
+	var filterWrap = document.querySelector('.filter');
 	function selectFilter(e){		
 		var target = e.target;
 		if(target.tagName !== 'A'){
 			return;
 		}
-		alert(target.tagName);
-		var optionName = target.parentElementNode.parentElementNode.querySelector('p');
-		alert(optionName.innerHTML);
-		return false;
+		e.preventDefault();
+		var targetName = target.innerHTML;
+		var optionParent = target.parentElement;
+		while(optionParent.className !== 'options'){
+			optionParent = optionParent.parentElement;
+		}
+		var optionTitle = optionParent.querySelector('.option-title');
+		var optionP = optionParent.querySelector('.option-title p');
+		optionP.style.cssText = 'font-size: 12px; padding-top: 15px;';		
+		var selected = optionTitle.querySelector('.selected');
+		selected.innerHTML = targetName;
+		optionParent.style.backgroundColor = '#f7f7f7';
+		
+		if(optionParent.matches('.options:first-child')){
+			firstChildSelected =true;
+			if(lastChildSelected){
+				filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
+				if(document.documentElement.offsetWidth < 1300){	
+					filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 10%, #f7f7f7 10%, #fff 10%, #fff 90%, #f7f7f7 90%, #f7f7f7 100%)';		
+				}	
+			}
+			else{
+				filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
+				if(document.documentElement.offsetWidth < 1300){	
+					filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 95%, #fff 95%, #f7f7f7 95%, #f7f7f7 100%)';		
+				}	
+			}
+					
+		}
+		 else if(optionParent.matches('.options:last-child')){
+		 	lastChildSelected = true;
+		 	if(firstChildSelected){
+		 		filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
+		 		 if(document.documentElement.offsetWidth < 1300){	
+					filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 10%, #f7f7f7 10%, #fff 10%, #fff 90%, #f7f7f7 90%, #f7f7f7 100%)';		
+				}	
+		 	}
+			 else {
+			 	filterWrap.style.backgroundImage = 'linear-gradient(to right, #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
+			 	if(document.documentElement.offsetWidth < 1300){	
+					filterWrap.style.backgroundImage = 'linear-gradient(to right,  #fff 95%, #fff 95%, #f7f7f7 95%, #f7f7f7 100%)';		
+				}	
+			 }
+			
+		}
+		return false;		
 	}
-	var selection = document.querySelectorAll('select-filter li a');
+	
+	
+	var selection = document.querySelectorAll('.select-filter li a');
 	for(var i =0; i<selection.length; i++){
-		selection[i].addEventListener('click', selectFilter)
+		selection[i].addEventListener('click', selectFilter);
 	}
-	//selection.addEventListener('click', selectFilter)
+	
 </script>
 </body>
 </html>
