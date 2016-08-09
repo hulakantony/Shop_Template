@@ -151,14 +151,26 @@
 						</li>
 					</ul>
 					<ul class="tablet-filter">
-						<li class="fashion">Fashion,</li>
-						<li class="product-type">Product type,</li>
-						<li class="color">Color,</li>
-						<li class="brand">Brand,</li>
-						<li class="size">Size,</li>
+						<li class="fashion">Fashion<span>,</span></li>
+						<li class="product-type">Product type<span>,</span></li>
+						<li class="color">Color<span>,</span></li>
+						<li class="brand">Brand<span>,</span></li>
+						<li class="size">Size<span>,</span></li>
 						<li class="price-range">Price range</li>
-						<li><img src="img/women/desctop/ico_arrow.png" alt=""></li>
+						<li><img src="img/women/desctop/ico_arrow.png" alt=""></li>		
 					</ul>
+					<div class="phone-filter-wrap">
+						<p class="phone-filter">
+							<span class="fashion">Fashion</span>,
+							<span class="product-type">Product type</span>,
+							<span class="color">Color</span>,
+							<span class="brand">Brand</span>,
+							<span class="size">Size</span>,
+							<span class="price-range">Price range</span>
+						</p>
+						<img src="img/women/desctop/ico_arrow.png" alt="">
+						<div class="transparent-gradient"></div>
+					</div>
 				</div>
 			</section>
 			<section class="catalog-wrap">
@@ -357,7 +369,7 @@
 
 									<!--PHONE BANNER-->
 
-				<div class="banner-phone banner"><a href=""><img src="img/home/phone/banner.jpg" alt=""></a></div>
+				<div class="banner-phone banner"><a href=""><img src="img/women/mobile/banner.jpg" alt=""></a></div>
 
 			</section>
 			<section class="info-wrap">
@@ -540,6 +552,30 @@
 		selection[i].addEventListener('click', selectFilter);
 	}
 	
+	var menuButton = document.querySelector('.menu-phone a');
+	var dropMenu = document.querySelector('.dropdown-menu-wrap');
+	var menuImage = document.querySelector('.menu-ico');
+	var pressed = false;
+	menuButton.onclick = function(e){
+		dropMenu.classList.toggle('pressed');
+		if(dropMenu.classList.contains('pressed')){
+			menuImage.src = 'img/home/phone/ico_close.png';
+		} else{
+			menuImage.src = 'img/home/phone/ico_menu.png';
+		}		
+		return false;
+	}
+
+	function addEvent(evnt, elem, func) {
+	   if (elem.addEventListener)  
+	      elem.addEventListener(evnt,func,false);
+	   else if (elem.attachEvent) { 
+	      elem.attachEvent("on"+evnt, func);
+	   }
+	   else { 
+	      elem[evnt] = func;
+	   }
+	}
 </script>
 </body>
 </html>
