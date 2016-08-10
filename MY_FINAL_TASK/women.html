@@ -13,10 +13,10 @@
 			<div class="logo-nav">
 				<div class="logo">
 					<a href="home.html"><h1 class = "logo-name">Template</h1></a>
-					<a href=""><h1 class = "logo-name-phone">TL</h1></a>
+					<a href="home.html"><h1 class = "logo-name-phone">TL</h1></a>
 					<ul class="mail-bag">
 						<li><a href="">E-mail sing up</a></li>
-						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="" class="shopping-bag">Bag</a></li>
+						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="shopping_bag.html" class="shopping-bag">Bag</a></li>
 					</ul>
 					<div class="menu-phone">
 						<a href=""><img class="menu-ico" src="img/home/phone/ico_menu.png" alt=""></a>
@@ -42,7 +42,7 @@
 		<div class="dropdown-menu-wrap">
 			<div class="content-wrap">	
 				<ul class="dropdown-menu">
-					<li><a href="">Women</a></li>
+					<li><a href="#" class="now">Women</a></li>
 					<li><a href="">Men</a></li>
 					<li><a href="">Handbags</a></li>
 					<li><a href="">Accessories</a></li>
@@ -57,13 +57,13 @@
 			</div>
 		</div>
 		<main>
-			<section class="filter">			
+			<section class="filter-desctop">			
 				<div class="content-wrap">
 					<ul class="filter-block">
 						<li class="options">
 							<div class="option-title">
 								<p>Fashion</p>
-								<p class="selected"></p>
+								<p class="selected" data-filtered="fashion"></p>
 							</div>
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -77,7 +77,7 @@
 						<li class="options">
 							<div class="option-title">							
 								<p>Product type</p>	
-								<p class="selected"></p>
+								<p class="selected" data-filtered="product-type"></p>
 							</div>						
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -91,7 +91,7 @@
 						<li class="options">
 							<div class="option-title">							
 								<p>Color</p>
-								<p class="selected"></p>
+								<p class="selected" data-filtered="color"></p>
 							</div>							
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -108,7 +108,7 @@
 						<li class="options">
 							<div class="option-title">							
 								<p>Brand</p>
-								<p class="selected"></p>
+								<p class="selected" data-filtered="brand"></p>
 							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -123,7 +123,7 @@
 						<li class="options">
 							<div class="option-title">							
 								<p>Size</p>
-								<p class="selected"></p>
+								<p class="selected" data-filtered="size"></p>
 							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -138,7 +138,7 @@
 						<li class="options">
 							<div class="option-title">							
 								<p>Price-range</p>
-								<p class="selected"></p>
+								<p class="selected" data-filtered="price-range"></p>
 							</div>								
 							<img src="img/women/desctop/ico_arrow.png" alt="">
 							<ul class="select-filter">
@@ -150,29 +150,42 @@
 							</ul>
 						</li>
 					</ul>
-					<ul class="tablet-filter">
-						<li class="fashion">Fashion<span>,</span></li>
-						<li class="product-type">Product type<span>,</span></li>
-						<li class="color">Color<span>,</span></li>
-						<li class="brand">Brand<span>,</span></li>
-						<li class="size">Size<span>,</span></li>
-						<li class="price-range">Price range</li>
-						<li><img src="img/women/desctop/ico_arrow.png" alt=""></li>		
-					</ul>
-					<div class="phone-filter-wrap">
-						<p class="phone-filter">
-							<span class="fashion">Fashion</span>,
-							<span class="product-type">Product type</span>,
-							<span class="color">Color</span>,
-							<span class="brand">Brand</span>,
-							<span class="size">Size</span>,
-							<span class="price-range">Price range</span>
-						</p>
-						<img src="img/women/desctop/ico_arrow.png" alt="">
+					</div>
+				</section>
+					<section class="filter-tablet">
+						<div class="content-wrap">
+							<div class="tablet-filter-wrap">
+							<p class="tablet-filter">
+								<span class="fashion">Fashion</span>,
+								<span class="product-type">Product type</span>,
+								<span class="color">Color</span>,
+								<span class="brand">Brand</span>,
+								<span class="size">Size</span>,
+								<span class="price-range">Price range</span>
+							</p>
+							<img src="img/women/desctop/ico_arrow.png" alt="">						
+					</div>
+						</div>
+					</section>
+					<section class="filter-mobile">
+						<div class="content-wrap">
+							<div class="phone-filter-wrap">
+							<p class="phone-filter">
+								<span class="fashion">Fashion</span>,
+								<span class="product-type">Product type</span>,
+								<span class="color">Color</span>,
+								<span class="brand">Brand</span>,
+								<span class="size">Size</span>,
+								<span class="price-range">Price range</span>
+							</p>
+							<img src="img/women/desctop/ico_arrow.png" alt="">
 						<div class="transparent-gradient"></div>
 					</div>
-				</div>
-			</section>
+						</div>
+					</section>
+					
+				
+			
 			<section class="catalog-wrap">
 				<div class="content-wrap">
 					<section class="items">
@@ -492,7 +505,7 @@
 
 	var firstChildSelected = false;
 	var lastChildSelected = false;
-	var filterWrap = document.querySelector('.filter');
+	var filterWrap = document.querySelector('.filter-desctop');
 	function selectFilter(e){		
 		var target = e.target;
 		if(target.tagName !== 'A'){
@@ -504,45 +517,52 @@
 		while(optionParent.className !== 'options'){
 			optionParent = optionParent.parentElement;
 		}
+		var tabletFilter = document.querySelectorAll('.tablet-filter span');
+		var phoneFilter = document.querySelectorAll('.phone-filter span');
+		
 		var optionTitle = optionParent.querySelector('.option-title');
 		var optionP = optionParent.querySelector('.option-title p');
+		var optionP2 = optionParent.querySelector('.option-title p:last-child');
 		optionP.style.cssText = 'font-size: 12px; padding-top: 15px;';		
 		var selected = optionTitle.querySelector('.selected');
+		
 		selected.innerHTML = targetName;
 		optionParent.style.backgroundColor = '#f7f7f7';
 		
+		//optionParent.querySelector('.select-filter').style.left = '-9999px';
+		for(var i =0; i<tabletFilter.length; i++){
+			if(tabletFilter[i].classList.contains(selected.dataset.filtered)){
+				tabletFilter[i].innerHTML = targetName;
+				tabletFilter[i].style.color = "#c82749";
+			}
+		}
+		for(var i =0; i<phoneFilter.length; i++){
+			if(phoneFilter[i].classList.contains(selected.dataset.filtered)){
+				phoneFilter[i].innerHTML = targetName;
+				phoneFilter[i].style.color = "#c82749";
+			}
+		}
+
+
 		if(optionParent.matches('.options:first-child')){
 			firstChildSelected =true;
 			if(lastChildSelected){
-				filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
-				if(document.documentElement.offsetWidth < 1300){	
-					filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 10%, #f7f7f7 10%, #fff 10%, #fff 90%, #f7f7f7 90%, #f7f7f7 100%)';		
-				}	
+				filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';				
 			}
 			else{
-				filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
-				if(document.documentElement.offsetWidth < 1300){	
-					filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 95%, #fff 95%, #f7f7f7 95%, #f7f7f7 100%)';		
-				}	
-			}
-					
+				filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';		
+			}					
 		}
 		 else if(optionParent.matches('.options:last-child')){
 		 	lastChildSelected = true;
 		 	if(firstChildSelected){
-		 		filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
-		 		 if(document.documentElement.offsetWidth < 1300){	
-					filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 10%, #f7f7f7 10%, #fff 10%, #fff 90%, #f7f7f7 90%, #f7f7f7 100%)';		
-				}	
+		 		filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';		 		 
 		 	}
 			 else {
-			 	filterWrap.style.backgroundImage = 'linear-gradient(to right, #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';
-			 	if(document.documentElement.offsetWidth < 1300){	
-					filterWrap.style.backgroundImage = 'linear-gradient(to right,  #fff 95%, #fff 95%, #f7f7f7 95%, #f7f7f7 100%)';		
-				}	
-			 }
-			
-		}
+			 	filterWrap.style.backgroundImage = 'linear-gradient(to right, #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';			 	
+			 }			
+		}	
+
 		return false;		
 	}
 	

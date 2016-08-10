@@ -92,7 +92,8 @@ header{
 }
 .content-wrap{
 	max-width: 1180px;	
-	margin: 0 auto;		
+	margin: 0 auto;	
+	width: 89.333333%;		
 }
 
 .logo h1{
@@ -519,6 +520,13 @@ footer.phone-footer{
 	display: none;
 }
 					/*------FOOTER END-------*/
+					/*------DESCTOP MEDIA QUERIES START-------*/	
+@media screen and (min-width: 1024px) and (max-width: 1100px){
+	.menu li{	
+		margin-right: 4.5%;		
+	}	
+}
+					/*------DESCTOP MEDIA QUERIES END-------*/
 
 					/*------TABLET MEDIA QUERIES START-------*/		
 					
@@ -641,7 +649,7 @@ footer.phone-footer{
 		font-size: 12px;;
 	}
 }
-@media screen and (min-width: 480px) and (max-width: 650px){
+@media screen and (min-width: 480px) and (max-width: 690px){
 	.menu li a{
 		font-size: 11px;;
 	}
