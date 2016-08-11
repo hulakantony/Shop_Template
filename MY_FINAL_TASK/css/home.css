@@ -532,8 +532,7 @@ footer.phone-footer{
 					
 @media screen and (min-width: 480px) and (max-width: 1024px){
 	.content-wrap{
-		width: 89.3333%;
-		min-width: 480px;
+		width: 89.3333%;		
 	}
 	.menu li{
 		margin-right: 3.25%;
@@ -682,10 +681,7 @@ footer.phone-footer{
 @media screen and (min-width: 480px) and (max-width: 600px){
 	.menu li a{
 		font-size: 10px;;
-	}
-	.content-wrap{
-		width: 100%;
-	}
+	}	
 	.questions a{
 		font-size: 0.8125em;
 	}
@@ -696,7 +692,17 @@ footer.phone-footer{
 		font-size: 0.625em;
 	}
 }
-
+@media screen and (min-width: 480px) and (max-width: 560px){
+	body{
+		font-size: 14px;
+	}
+	.content-wrap{
+		width: 95%;
+	}
+	.menu li{
+		margin-right: 2.4%;
+	}
+}
 @media screen and (min-width: 480px) and (max-width: 530px){	
 	.footer-nav ul li{
 		margin-left: 7px;
