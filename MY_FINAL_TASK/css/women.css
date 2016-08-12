@@ -132,6 +132,9 @@ ul.menu{
 .menu li a:hover, .menu li a:active{
 	color: red;
 }
+.header-price{
+	padding-left: 3px;
+}
 .mail-bag{
 	margin-top: 28px;
 	float: right;
@@ -657,8 +660,10 @@ footer.phone-footer{
 					
 @media screen and (min-width: 480px) and (max-width: 1024px){
 	.content-wrap{
-		width: 89.3333%;
-		
+		width: 89.3333%;		
+	}
+	body{
+		min-width: 480px;
 	}
 	.menu li{
 		margin-right: 3.25%;

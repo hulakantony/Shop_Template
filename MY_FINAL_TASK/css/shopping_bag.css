@@ -141,7 +141,9 @@ ul.menu{
 .mail-bag li{
 	display: inline-block;
 }
-
+.header-price{
+	padding-left: 3px;
+}
 .mail-bag li a{
 	text-decoration: none;
 	color: #000;
