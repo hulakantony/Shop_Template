@@ -342,7 +342,7 @@
 
 		var bagObject = new AddToBagOptions(image, price, name, size, color);
 		var bagJson = JSON.stringify(bagObject);
-
+		alert(bagJson);
 		localStorage.setItem('itemToBag', bagJson);
 	}
 	addToBagButton.addEventListener('click', addToBag);

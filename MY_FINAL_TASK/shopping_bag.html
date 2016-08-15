@@ -295,6 +295,7 @@
 	window.onload = function(){
 		var newItem = JSON.parse(localStorage.getItem("itemToBag"));
 		if(newItem !== null){
+
 		var item = document.createElement('article');
 		item.className = 'item';
 
@@ -306,7 +307,7 @@
 		imageWrap.className = 'image-wrap';
 
 		var itemImage = document.createElement('img');
-		//itemImage.src = newItem.image;
+		itemImage.src = newItem.image;
 		var hidePhoto = document.createElement('div');
 		hidePhoto.className = 'hide-photo';
 		
@@ -316,10 +317,11 @@
 		var itemPrice = document.createElement('p');
 		itemPrice.className = 'item-price';
 		itemPrice.classList.add('remove');
-		itemPrice.textContent = newItem.price;
+		itemPrice.innerHTML = newItem.price;
 
 		photoPriceDiv.appendChild(imageWrap);
 		photoPriceDiv.appendChild(hidePhoto);
+		photoPriceDiv.appendChild(itemPrice);
 
 		var itemDescription = document.createElement('div');
 		itemDescription.className ='item-description';
@@ -327,7 +329,7 @@
 
 		var itemName = document.createElement('p');
 		itemName.className ='item-name';
-		itemName.textContent = newItem.name;
+		itemName.innerHTML = newItem.name;
 
 		var itemColor = document.createElement('p');
 		itemColor.className ='item-color';
@@ -335,14 +337,14 @@
 		itemColor.textContent = 'Color: ' + newItem.color;
 
 		var itemSize = document.createElement('p');
-		itemColor.className ='item-size';
-		itemColor.classList.add('characteristics');
-		itemColor.textContent = 'Size: ' + newItem.size;
+		itemSize.className ='item-size';
+		itemSize.classList.add('characteristics');
+		itemSize.innerHTML = 'Size: ' + newItem.size;
 
 		var itemQuantity = document.createElement('p');
 		itemQuantity.className ='item-quantity';
 		itemQuantity.classList.add('characteristics');
-		itemColor.textContent = 'Quantity: 1';
+		itemQuantity.innerHTML = 'Quantity: 1';
 
 		var removeButton = document.createElement('a');
 		removeButton.className = 'remove-button';
@@ -362,7 +364,7 @@
 		item.appendChild(photoPriceDiv);
 		item.appendChild(itemDescription);
 
-		var bagSection = document.querySelector('.shopping-bag-items');
+		var bagSection = document.querySelector('.shopping-bag-items .content-wrap');
 		bagSection.appendChild(item);
 	}
 	}
