@@ -16,7 +16,7 @@
 					<a href="home.html"><h1 class = "logo-name-phone">TL</h1></a>
 					<ul class="mail-bag">
 						<li><a href="">E-mail sing up</a></li>
-						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="" class="shopping-bag">Bag  <span class="header-price">£1 816.85(4)</span></a></li>
+						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="" class="shopping-bag">Bag  <span class="header-price">£1 816.85</span><span class="header-count">(4)</span></a></li>
 					</ul>
 					<div class="menu-phone">
 						<a href=""><img class="menu-ico" src="img/home/phone/ico_menu.png" alt=""></a>
@@ -293,82 +293,92 @@
 	}
 
 	window.onload = function(){
-		var newItem = JSON.parse(localStorage.getItem("itemToBag"));
-		if(newItem !== null){
-
-		var item = document.createElement('article');
-		item.className = 'item';
-
-		var photoPriceDiv = document.createElement('div');
-		photoPriceDiv.className = 'photo-price';
-		photoPriceDiv.classList.add('remove');
-
-		var imageWrap = document.createElement('div');
-		imageWrap.className = 'image-wrap';
-
-		var itemImage = document.createElement('img');
-		itemImage.src = newItem.image;
-		var hidePhoto = document.createElement('div');
-		hidePhoto.className = 'hide-photo';
-		
-		imageWrap.appendChild(itemImage);
-		imageWrap.appendChild(hidePhoto);
-
-		var itemPrice = document.createElement('p');
-		itemPrice.className = 'item-price';
-		itemPrice.classList.add('remove');
-		itemPrice.innerHTML = newItem.price;
-
-		photoPriceDiv.appendChild(imageWrap);
-		photoPriceDiv.appendChild(hidePhoto);
-		photoPriceDiv.appendChild(itemPrice);
-
-		var itemDescription = document.createElement('div');
-		itemDescription.className ='item-description';
-		itemDescription.classList.add('remove');
-
-		var itemName = document.createElement('p');
-		itemName.className ='item-name';
-		itemName.innerHTML = newItem.name;
-
-		var itemColor = document.createElement('p');
-		itemColor.className ='item-color';
-		itemColor.classList.add('characteristics');
-		itemColor.textContent = 'Color: ' + newItem.color;
-
-		var itemSize = document.createElement('p');
-		itemSize.className ='item-size';
-		itemSize.classList.add('characteristics');
-		itemSize.innerHTML = 'Size: ' + newItem.size;
-
-		var itemQuantity = document.createElement('p');
-		itemQuantity.className ='item-quantity';
-		itemQuantity.classList.add('characteristics');
-		itemQuantity.innerHTML = 'Quantity: 1';
-
-		var removeButton = document.createElement('a');
-		removeButton.className = 'remove-button';
-		removeButton.classList.add('remove');
-
-		var removeButtonText = document.createElement('p');
-		removeButtonText.textContent = 'Remove item';
-
-		removeButton.appendChild(removeButtonText);
-
-		itemDescription.appendChild(itemName);
-		itemDescription.appendChild(itemColor);
-		itemDescription.appendChild(itemSize);
-		itemDescription.appendChild(itemQuantity);
-		itemDescription.appendChild(removeButton);
-
-		item.appendChild(photoPriceDiv);
-		item.appendChild(itemDescription);
-
-		var bagSection = document.querySelector('.shopping-bag-items .content-wrap');
-		bagSection.appendChild(item);
+		var newHeaderPrice = localStorage.getItem('headerPrice');
+		var newHeaderCount = localStorage.getItem('headerCount');
+		var headerPrice = document.querySelector('.header-price');
+		var headerCount = document.querySelector('.header-count');
+		headerPrice.textContent = newHeaderPrice;
+		headerCount.textContent = newHeaderCount;		
+		addNewItemToBag();
+	
 	}
-	}
+	
+	function addNewItemToBag(){
+			var newItems = JSON.parse(localStorage.getItem("itemToBag"));			
+			for(var i =0; i< newItems.length; i++){	
+			var newItem = newItems[i];
+			createElement(newItem);
+			//console.log(newItem)
+			
+			}
+		}
+		function createElement(itemProps){
+			var item = document.createElement('article');
+			item.className = 'item';
+			item.style.marginTop = '45px';
 
+			var photoPriceDiv = document.createElement('div');
+			photoPriceDiv.className = 'photo-price remove';		
+
+			var imageWrap = document.createElement('div');
+			imageWrap.className = 'image-wrap';
+
+			var itemImage = document.createElement('img');
+			itemImage.src = itemProps.image;
+			var hidePhoto = document.createElement('div');
+			hidePhoto.className = 'hide-photo';
+			
+			imageWrap.appendChild(itemImage);
+			imageWrap.appendChild(hidePhoto);
+
+			var itemPrice = document.createElement('p');
+			itemPrice.className = 'item-price remove';		
+			itemPrice.innerHTML = itemProps.price;
+
+			photoPriceDiv.appendChild(imageWrap);			
+			photoPriceDiv.appendChild(itemPrice);
+
+			var itemDescription = document.createElement('div');
+			itemDescription.className ='item-description remove';		
+
+			var itemName = document.createElement('p');
+			itemName.className ='item-name';
+			itemName.innerHTML = itemProps.name;
+
+			var itemColor = document.createElement('p');
+			itemColor.className ='item-color characteristics';		
+			itemColor.textContent = 'Color: ' + itemProps.color;
+
+			var itemSize = document.createElement('p');
+			itemSize.className ='item-size characteristics';		
+			itemSize.innerHTML = 'Size: ' + itemProps.size;
+
+			var itemQuantity = document.createElement('p');
+			itemQuantity.className ='item-quantity characteristics';		
+			itemQuantity.innerHTML = 'Quantity: 1';
+
+			var removeButton = document.createElement('a');
+			removeButton.className = 'remove-button remove';
+			removeButton.setAttribute('href', '#');		
+
+			var removeButtonText = document.createElement('p');
+			removeButtonText.textContent = 'Remove item';
+
+			removeButton.appendChild(removeButtonText);
+
+			itemDescription.appendChild(itemName);
+			itemDescription.appendChild(itemColor);
+			itemDescription.appendChild(itemSize);
+			itemDescription.appendChild(itemQuantity);
+			itemDescription.appendChild(removeButton);
+
+			item.appendChild(photoPriceDiv);
+			item.appendChild(itemDescription);
+
+			var bagSection = document.querySelector('.shopping-bag-items .content-wrap');
+			bagSection.appendChild(item);
+		}
+	
 </script>
 </body>
 </html>

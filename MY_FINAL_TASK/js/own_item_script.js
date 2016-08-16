@@ -46,6 +46,7 @@
 			thumbsA[i].href = itemObj.image;
 		}
 	}
+	var jsonArray =[];
 //--------------------------------------------------------------
 	function AddToBagOptions(image, price, name, size, color){
 		this.image = image;
@@ -65,7 +66,8 @@
 		var color = document.querySelector('.color-buttons li.selected').textContent;
 
 		var bagObject = new AddToBagOptions(image, price, name, size, color);
-		var bagJson = JSON.stringify(bagObject);
+		jsonArray.push(bagObject);
+		var bagJson = JSON.stringify(jsonArray);
 
 		localStorage.setItem('itemToBag', bagJson);
 	}

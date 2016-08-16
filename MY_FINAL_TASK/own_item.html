@@ -16,7 +16,7 @@
 					<a href="home.html"><h1 class = "logo-name-phone">TL</h1></a>
 					<ul class="mail-bag">
 						<li><a href="">E-mail sing up</a></li>
-						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="shopping_bag.html" class="shopping-bag">Bag <span class="header-price">£1 816.85(4)</span></a></li>
+						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="shopping_bag.html" class="shopping-bag">Bag <span class="header-price">£1 816.85</span><span class="header-count">(4)</span></a></li>
 					</ul>
 					<div class="menu-phone">
 						<a href=""><img class="menu-ico" src="img/home/phone/ico_menu.png" alt=""></a>
@@ -323,6 +323,8 @@
 	  localStorage.removeItem("ItemProp");
 	};
 	
+//--------------обработчик события добавления товара--------
+
 	function AddToBagOptions(image, price, name, size, color){
 		this.image = image;
 		this.price = price;
@@ -330,10 +332,13 @@
 		this.color = color;
 		this.size = size;
 	}
-	var addToBagButton = document.querySelector('.add-to-bag-btn');
-
+	
 	function addToBag(e){
 	 var itemObj = JSON.parse(localStorage.getItem("itemProp"));
+	 	var jsonArray = JSON.parse(localStorage.getItem('itemToBag'));
+	 	if(!jsonArray){
+	 		var jsonArray = [];
+	 	}
 		var image = itemObj.image;
 		var price = itemObj.price;
 		var name = itemObj.name;
@@ -341,12 +346,41 @@
 		var color = document.querySelector('.color-buttons li.selected').textContent;
 
 		var bagObject = new AddToBagOptions(image, price, name, size, color);
-		var bagJson = JSON.stringify(bagObject);
-		alert(bagJson);
+			jsonArray.push(bagObject);
+		var bagJson = JSON.stringify(jsonArray);		
 		localStorage.setItem('itemToBag', bagJson);
+
+		updateHeaderPrice(price);
+		updateItemsCount();
+		//window.location.href = 'shopping_bag.html'
 	}
+	var addToBagButton = document.querySelector('.add-to-bag-btn');
 	addToBagButton.addEventListener('click', addToBag);
 
+	function updateHeaderPrice(value){
+		var headerPrice = document.querySelector('.header-price');
+		var intHeaderPrice = headerPrice.textContent.split('').slice(1).join('').replace(/\s+/g, '');;
+		console.log(intHeaderPrice);
+		var intAddedPrice = value.split('').slice(1).join('').replace(/\s+/g, '');;
+		console.log(intAddedPrice)
+		var newPrice = parseFloat(intHeaderPrice) + parseFloat(intAddedPrice);
+		newPrice = ''  + newPrice;
+		newPrice = newPrice.replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g,"\$1 ");
+		headerPrice.textContent = '£' + newPrice;
+
+		localStorage.setItem('headerPrice', headerPrice.textContent);
+	}
+
+	function updateItemsCount(){
+		var headerCount = document.querySelector('.header-count');
+		var countStringArr = headerCount.textContent.split('');
+		var count = countStringArr.slice(1, countStringArr.length-1).join('');
+		count = +count + 1;
+		console.log(count);
+		headerCount.textContent = '('+ count + ')';
+
+		localStorage.setItem('headerCount', headerCount.textContent);
+	}
 </script>
 </body>
 </html>
