@@ -64,6 +64,7 @@
 			</section>
 			<section class="shopping-bag-items">
 				<div class="content-wrap">
+				<h2 class="when-empty-bag"></h2>
 					<arcicle class="item">
 						<div class="photo-price remove">
 							<div class="image-wrap">	
@@ -75,10 +76,10 @@
 						</div>
 						<div class="item-description remove">
 							<p class="item-name">Only Skinny Jeans</p>
-							<p class="item-color characteristics">Color: Phillipa wash</p>
-							<p class="item-size characteristics">Size: UK 17</p>
+							<p class="item-color characteristics">Color: <span class="color">Phillipa wash</span></p>
+							<p class="item-size characteristics">Size: <span class="size">UK 17</span></p>
 							<p class="item-quantity characteristics">Quantity: <span class='quantity'>1</span></p>
-							<a href="" class="remove-button remove">
+							<a href="" class="remove-button">
 								<p>Remove item</p>
 							</a>
 						</div>						
@@ -93,10 +94,10 @@
 						</div>
 						<div class="item-description remove">
 							<p class="item-name">Paul & Joe Sister Jumper with Neon Trims</p>
-							<p class="item-color characteristics">Color: Blue</p>
-							<p class="item-size characteristics">Size: UK 18</p>
-							<p class="item-quantity characteristics">Quantity: 1</p>
-							<a href="" class="remove-button remove">
+							<p class="item-color characteristics">Color: <span class="color">Blue</span></p>
+							<p class="item-size characteristics">Size: <span class="size">UK 18</span></p>
+							<p class="item-quantity characteristics">Quantity: <span class="quantity">1</span></p>
+							<a href="" class="remove-button">
 								<p>Remove item</p>
 							</a>
 						</div>						
@@ -111,10 +112,10 @@
 						</div>
 						<div class="item-description remove">
 							<p class="item-name">Boyfriend T-Shirt with Bohemian Print</p>
-							<p class="item-color characteristics">Color: Black</p>
-							<p class="item-size characteristics">Size: UK 18</p>
-							<p class="item-quantity characteristics">Quantity: 1</p>
-							<a href="" class="remove-button remove">
+							<p class="item-color characteristics">Color: <span class="color">Black</span></p>
+							<p class="item-size characteristics">Size: <span class="size">UK 18</span></p>
+							<p class="item-quantity characteristics">Quantity: <span class="quantity">1</span></p>
+							<a href="" class="remove-button">
 								<p>Remove item</p>
 							</a>
 						</div>					
@@ -129,10 +130,10 @@
 						</div>
 						<div class="item-description remove">
 							<p class="item-name">Turtle Neck Jumper in Rib</p>
-							<p class="item-color characteristics">Color: Green</p>
-							<p class="item-size characteristics">Size: UK 19</p>
-							<p class="item-quantity characteristics">Quantity: 1</p>
-							<a href="" class="remove-button remove">
+							<p class="item-color characteristics">Color: <span class="color">Green</span></p>
+							<p class="item-size characteristics">Size: <span class="size">UK 19</span></p>
+							<p class="item-quantity characteristics">Quantity: <span class="quantity">1</span></p>
+							<a href="" class="remove-button">
 								<p>Remove item</p>
 							</a>							
 						</div>						
@@ -292,26 +293,82 @@
 	   }
 	}
 
-	window.onload = function(){
+	var container = document.querySelector('.shopping-bag-items .content-wrap');
+	var totalPrice = document.querySelector('.total-price');
+	window.onload = function(){//надо запихнуть в асинхрон скрипт по возможности 
+		if(localStorage.getItem('isEmpty') === 'true'){
+			container.innerHTML = '<h2 class="when-empty-bag">Your shopping bag is empty. Use Catalog to add new items</h2>';
+		} 
+		 if(localStorage.getItem('newItemAdded') === 'true' && localStorage.getItem('isEmpty') === 'true'){
+			container.innerHTML = '';
+		}
+		//-----------------------------------------------------
 		var newHeaderPrice = localStorage.getItem('headerPrice');
-		var newHeaderCount = localStorage.getItem('headerCount');
-		var headerPrice = document.querySelector('.header-price');
-		var headerCount = document.querySelector('.header-count');
-		headerPrice.textContent = newHeaderPrice;
-		headerCount.textContent = newHeaderCount;		
-		addNewItemToBag();
-	
+			var newHeaderCount = localStorage.getItem('headerCount');
+			if(newHeaderCount !== null || newHeaderPrice !== null){
+				var headerPrice = document.querySelector('.header-price');
+				var headerCount = document.querySelector('.header-count');
+				headerPrice.textContent = newHeaderPrice;
+				headerCount.textContent = newHeaderCount;
+			} else {
+				return;
+			}	
+
+				
+		totalPrice.textContent = newHeaderPrice;
+		//надо запихнуть в асинхронный скрипт-------------------
+
+		addNewItemToBag();			
 	}
 	
-	function addNewItemToBag(){
-			var newItems = JSON.parse(localStorage.getItem("itemToBag"));			
-			for(var i =0; i< newItems.length; i++){	
-			var newItem = newItems[i];
-			createElement(newItem);
-			//console.log(newItem)
-			
+
+	function checkLastChild(){
+		var newItems = JSON.parse(localStorage.getItem("itemToBag"));
+		if(newItems !== null){
+		var lastElement = newItems[newItems.length-1];		
+	
+		for(var i =0; i<newItems.length-1; i++){
+			var item = newItems[i];
+			if(lastElement.name === item.name && lastElement.color === item.color && lastElement.size === item.size){				
+				item.quantity = +item.quantity + 1;				
+				newItems.pop();
+				newItems = JSON.stringify(newItems);
+				localStorage.setItem('itemToBag', newItems);
+				return;
 			}
+		}	
+		}	
+	}
+
+	checkLastChild();
+
+
+	function addNewItemToBag(){		
+			var newItems = JSON.parse(localStorage.getItem("itemToBag"));
+			if(newItems !== null){
+			var items = document.querySelectorAll('.item');
+			
+			for(var i =0; i< newItems.length; i++){	
+				var newItem = newItems[i];
+				for(var j = 0; j<items.length; j++){
+					var item = items[j];
+					var name = item.querySelector('.item-name').textContent.toLowerCase();					
+					var color = item.querySelector('.color').textContent.toLowerCase();					
+					var size = item.querySelector('.size').textContent.toLowerCase();
+					
+					var quantity = item.querySelector('.quantity').textContent;
+					
+				if(newItem.name.toLowerCase() == name && newItem.color.toLowerCase() == color && newItem.size.toLowerCase() == size){
+					
+					quantity.textContent = parseInt(quantity) + 1;
+					return ;
+				} 							
+			}			
+			createElement(newItem);
 		}
+	}
+	}
+
 		function createElement(itemProps){
 			var item = document.createElement('article');
 			item.className = 'item';
@@ -346,19 +403,31 @@
 			itemName.innerHTML = itemProps.name;
 
 			var itemColor = document.createElement('p');
-			itemColor.className ='item-color characteristics';		
-			itemColor.textContent = 'Color: ' + itemProps.color;
+			itemColor.className ='item-color characteristics';
+			var colorSpan = document.createElement('span');
+			colorSpan.className = 'color';
+			colorSpan.innerHTML = itemProps.color;		
+			itemColor.textContent = 'Color: ';
+			itemColor.appendChild(colorSpan);
 
 			var itemSize = document.createElement('p');
-			itemSize.className ='item-size characteristics';		
-			itemSize.innerHTML = 'Size: ' + itemProps.size;
+			itemSize.className ='item-size characteristics';
+			var sizeSpan = document.createElement('span');
+			sizeSpan.className = 'size';
+			sizeSpan.innerHTML = itemProps.size;	
+			itemSize.innerHTML = 'Size: ';
+			itemSize.appendChild(sizeSpan);					
 
 			var itemQuantity = document.createElement('p');
-			itemQuantity.className ='item-quantity characteristics';		
-			itemQuantity.innerHTML = 'Quantity: 1';
+			itemQuantity.className ='item-quantity characteristics';
+			var quantSpan = document.createElement('span');
+			quantSpan.className = 'quantity';
+			quantSpan.innerHTML = itemProps.quantity;		
+			itemQuantity.innerHTML = 'Quantity: ';
+			itemQuantity.appendChild(quantSpan);
 
 			var removeButton = document.createElement('a');
-			removeButton.className = 'remove-button remove';
+			removeButton.className = 'remove-button';
 			removeButton.setAttribute('href', '#');		
 
 			var removeButtonText = document.createElement('p');
@@ -378,7 +447,56 @@
 			var bagSection = document.querySelector('.shopping-bag-items .content-wrap');
 			bagSection.appendChild(item);
 		}
+
+	//---------------нажатие на кнопки-------------------------------------------------------------
+	var makeBagEmpty = document.querySelector('.empty-bag');
+	makeBagEmpty.onclick = function(e){		
+		var target = e.target;
+		if(target.nodName !== 'A'){
+			target = target.parentNode;
+		}
+		e.preventDefault();
+
+		var catalogItems = document.querySelectorAll('.item');
+		for(var i =0; i<catalogItems.length; i++){
+			container.removeChild(catalogItems[i]);
+		}
+		container.innerHTML = '<h2 class="when-empty-bag">Your shopping bag is empty. Use Catalog to add new items</h2>';
+		localStorage.removeItem('itemToBag');
+		localStorage.setItem('isEmpty', 'true');
+		localStorage.setItem('newItemAdded', 'false');
+		var headerPrice = document.querySelector('.header-price');
+		var headerCount = document.querySelector('.header-count');
+		headerPrice.textContent = '';
+		headerCount.textContent = '';
+		localStorage.setItem('headerPrice', headerPrice.textContent);
+		localStorage.setItem('headerCount', headerCount.textContent);
+		totalPrice.textContent = '';
+		return false;
+	}
+
+
+	var buyNowButton = document.querySelector('.buy-now-btn');
+	buyNowButton.onclick = function(e){
+		var catalogItems = document.querySelectorAll('.item');
+		for(var i =0; i<catalogItems.length; i++){
+			container.removeChild(catalogItems[i]);
+		}
+		container.innerHTML = '<h2 class="when-empty-bag">Thank you for your purchase</h2>';
+		localStorage.removeItem('itemToBag');
+		localStorage.setItem('isEmpty', 'true');
+		localStorage.setItem('newItemAdded', 'false');
+		var headerPrice = document.querySelector('.header-price');
+		var headerCount = document.querySelector('.header-count');
+		headerPrice.textContent = '';
+		headerCount.textContent = '';
+		localStorage.setItem('headerPrice', headerPrice.textContent);
+		localStorage.setItem('headerCount', headerCount.textContent);
+		totalPrice.textContent = '';
+		
+	}
 	
+
 </script>
 </body>
 </html>

@@ -148,3 +148,4 @@
 		bagSection.appendChild(item);
 
 	}
+

@@ -204,13 +204,20 @@ input.search-input{
 	clear: both;
 	visibility: hidden;
 }				
-
+.when-empty-bag{
+	text-align: center;
+	margin: 0 auto;	
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.25em;	
+	line-height: 30px;
+	font-weight: bold;
+}
 .item{
 	width: 50%;
 	float: left;
 	margin-top: 45px;
 	font-family: 'Roboto',sans-serif;
-	position: relative;
+	position: relative;	
 }
 .item:nth-of-type(1), .item:nth-of-type(2){
 	margin-top: 30px;
@@ -280,9 +287,7 @@ input.search-input{
 .item:hover .remove{
 	color: rgba(0,0,0, .5);	
 }
-.item:hover .remove-button{
-	color: rgba(241,74,88, .5);;
-}
+
 .item:hover .hide-photo{
 	opacity: 1;
 }
