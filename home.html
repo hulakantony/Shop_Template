@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Template Home</title>
 	<link rel="stylesheet" href="css/home.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="main-wrapper">
@@ -11,19 +12,19 @@
 			<div class="content-wrap">
 			<div class="logo-nav">
 				<div class="logo">
-					<a href=""><h1 class = "logo-name">Template</h1></a>
+					<a href="home.html"><h1 class = "logo-name">Template</h1></a>
 					<a href=""><h1 class = "logo-name-phone">TL</h1></a>
 					<ul class="mail-bag">
 						<li><a href="">E-mail sing up</a></li>
-						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="" class="shopping-bag">Bag</a></li>
+						<li><img src = "img/home/desctop/bag_ico.png" alt="bag"><a href="shopping_bag.html" class="shopping-bag">Bag <span class="header-price">£1 816.85</span><span class="header-count">(4)</span></a></li>
 					</ul>
 					<div class="menu-phone">
-						<a href=""><img src="img/home/phone/ico_menu.png" alt=""></a>
+						<a href=""><img class="menu-ico" src="img/home/phone/ico_menu.png" alt=""></a>
 					</div>
 				</div>
 				<nav class="menu-search">
 					<ul class="menu">
-						<li><a href="">Women</a></li>
+						<li><a href="women.html">Women</a></li>
 						<li><a href="">Men</a></li>
 						<li><a href="">Handbags</a></li>
 						<li><a href="">Accessories</a></li>
@@ -34,56 +35,70 @@
 						<li><input type="search" placeholder="Style Name" class="search-input">
 						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a></li>
 					</ul>
-				</nav>
+				</nav>				
 				</div>				
 			</div>			
 		</header>
+		<div class="dropdown-menu-wrap">
+			<div class="content-wrap">	
+				<ul class="dropdown-menu">
+					<li><a href="women.html">Women</a></li>
+					<li><a href="">Men</a></li>
+					<li><a href="">Handbags</a></li>
+					<li><a href="">Accessories</a></li>
+					<li><a href="">Sale</a></li>
+					<li><a href="">New Arrivals</a></li>
+					<li><a href="">Clearance</a></li>
+					<li><a href="">Store Locator</a></li>
+					<li><input type="search" placeholder="Style Name" class="search-input">
+						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<main>
 			<section class="carousel-container">
 				<div class="carousel-wrap">
-					<ul class="carousel-desctop">
+					<ul class="carousel-desctop carousel">
 						<li><a href=""><img src="img/home/desctop/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/desctop/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
 					</ul>
-					<ul class="carousel-tablet">
+					<ul class="carousel-tablet carousel">
 						<li><a href=""><img src="img/home/tablet/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/tablet/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
 					</ul>
-					<ul class="carousel-phone">
+					<ul class="carousel-phone carousel">
 						<li><a href=""><img src="img/home/phone/carousel_1.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
 						<li><a href=""><img src="img/home/phone/carousel_3.jpg" alt=""></a></li>
-						<li><img src="" alt=""></li>
+						<li><a href=""><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
 					</ul>
 					<ol class="points">
-						<li><a class="active"></a></li>
-						<li><a></a></li>
-						<li><a></a></li>
-						<li><a></a></li>
+						<li><a class="active" data-shift="0"></a></li>
+						<li><a data-shift="-100"></a></li>
+						<li><a data-shift="-200"></a></li>
+						<li><a data-shift="-300"></a></li>
 					</ol>
 				</div>
 			</section>
 			<section class="banners-wrap">
-				<div class="left-banner banner"><a href=""><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>
-					<!--<div class="banner-text">
-						<h3>Nike Red</h3>
-						<p>New</p>
-					</div>	-->			
+				<div class="left-banner banner">
+					<a href=""><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>					
 				</div>
-				<div class="right-banner banner"><a href=""><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>
-					<!--<div class="banner-text">
-						<h3>Caps & Hats</h3>
-						<p>Sale -50%</p>
-					</div>-->
+				<div class="right-banner banner">
+					<a href=""><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>					
 				</div>
 									<!--TABLET BANNER-->
+
 				<div class="left-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_left.jpg" alt=""></a></div>
 				<div class="right-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_right_1.jpg" alt=""></a></div>
+
 									<!--PHONE BANNER-->
+
 				<div class="banner-phone banner"><a href=""><img src="img/home/phone/banner.jpg" alt=""></a></div>
 
 			</section>
@@ -222,7 +237,7 @@
 					<p class="copyright">© 2010–2015, The Template Group inc.</p>
 					<div class="share">
 						<ul>
-							<li class="share-text"><p>Share</p></li>
+							<li class="share-text"><a href=""><p>Share</p></a></li>
 							<li class="share-count"><p>1 437</p></li>
 						</ul>
 					</div>
@@ -230,6 +245,99 @@
 			</div>
 		</footer>
 	</div>
+<script>
+	var menuButton = document.querySelector('.menu-phone a');
+	var dropMenu = document.querySelector('.dropdown-menu-wrap');
+	var menuImage = document.querySelector('.menu-ico');
+	var pressed = false;
+	menuButton.onclick = function(e){
+		dropMenu.classList.toggle('pressed');
+		if(dropMenu.classList.contains('pressed')){
+			menuImage.src = 'img/home/phone/ico_close.png';
+		} else{
+			menuImage.src = 'img/home/phone/ico_menu.png';
+		}		
+		return false;
+	}
+
+	function addEvent(evnt, elem, func) {
+	   if (elem.addEventListener)  
+	      elem.addEventListener(evnt,func,false);
+	   else if (elem.attachEvent) { 
+	      elem.attachEvent("on"+evnt, func);
+	   }
+	   else { 
+	      elem[evnt] = func;
+	   }
+	}
+
+	var carousel = document.querySelectorAll('.carousel');
+	var carouselPhone = document.querySelector('.carousel-phone')
+	var points = document.querySelectorAll('.points li a');
+	var position = +document.querySelector('.points li a.active').getAttribute('data-shift');
+	var interval = setInterval(nextStep, 3000);
+	function addActiveClass(e){
+		//clearInterval(interval);
+		for(var i =0; i< points.length; i++){
+			var point = points[i];
+			point.classList.remove('active');
+		}
+		e.target.classList.add('active');
+		for(var j =0; j<carousel.length; j++){
+			carousel[j].style.left = e.target.dataset.shift + '%';
+		}
+		position = +e.target.dataset.shift;
+		clearInterval(interval);
+		//setTimeout(function(){
+			//var interval = setInterval(nextStep, 3000);
+		//}, 10000);
+		return false;
+	}
+	for(var i =0; i<points.length; i++){
+		var point = points[i];
+		addEvent('click', point, addActiveClass);
+	}
 	
+	function nextStep(){
+		if(position <= -300){
+			position = 0;
+			carousel[0].style.left = 0;	
+			carouselPhone.style.left = 0		
+		} else{			
+			carousel[0].style.left = position - 100 + '%';
+			carouselPhone.style.left = position - 100 + '%';
+			position -= 100;			
+		}
+		for(var i = 0; i<points.length; i++){
+			var point = points[i];
+			point.classList.remove('active');
+			if(+point.dataset.shift === position){
+				point.classList.add('active');
+			}
+		}				
+	}
+	
+	
+	
+	//var firstHeaderPrice = document.querySelector('.header-price').textContent;
+	//var firstHeaderCount = document.querySelector('.header-count').textContent;
+	window.onload = function(){
+		
+			//alert(localStorage.getItem('headerPrice'));
+			var newHeaderPrice = localStorage.getItem('headerPrice');
+			var newHeaderCount = localStorage.getItem('headerCount');
+			if(newHeaderCount !== null || newHeaderPrice !== null){
+				var headerPrice = document.querySelector('.header-price');
+				var headerCount = document.querySelector('.header-count');
+				headerPrice.textContent = newHeaderPrice;
+				headerCount.textContent = newHeaderCount;
+			} else {
+				return;
+			}
+			
+		
+	}
+
+</script>
 </body>
 </html>
