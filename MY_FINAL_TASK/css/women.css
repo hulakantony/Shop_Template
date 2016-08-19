@@ -200,7 +200,7 @@ input.search-input{
 	cursor: pointer;
 	position: relative;
 	z-index: 1000;
-
+	background: #fff;
 }
 .filter-block li p{	
 	padding-left: 10.16949%;
@@ -311,7 +311,6 @@ input.search-input{
 .item img{
 	width: 100%;
 }
-
 .item a{
 	text-decoration: none;
 	color: #000;

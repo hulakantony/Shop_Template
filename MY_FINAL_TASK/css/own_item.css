@@ -204,9 +204,11 @@ input.search-input{
 }
 .photo-switcher{
 	margin-top: 60px;	
+	text-align: center;
 }
-.photo{
-	width: 100%;
+.photos{
+	width: 50%;
+	margin: 0 auto;
 }
 .large-image-wrap{
 	width: 77.542372%;
@@ -728,6 +730,9 @@ footer.phone-footer{
 	}
 	.photo-switcher{
 		margin-top: 0;	
+	}
+	.photos{
+		width: 100%;
 	}
 	.large-image-wrap{
 		width: 100%;
