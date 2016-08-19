@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/women.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<script src="js/price_count_renew.js" async></script>
 <body>
 	<div class="main-wrapper">
 		<header>
@@ -367,22 +368,22 @@
 
 			<section class="banners-wrap">
 				<div class="left-banner banner">
-					<a href=""><img src="img/women/desctop/banner_1.jpg" alt=""></a>					
+					<a href="women.html"><img src="img/women/desctop/banner_1.jpg" alt=""></a>					
 				</div>
 				<div class="middle-banner banner">
-					<a href=""><img src="img/women/desctop/banner_2.jpg" alt=""></a>					
+					<a href="women.html"><img src="img/women/desctop/banner_2.jpg" alt=""></a>					
 				</div>
 				<div class="right-banner banner">
-					<a href=""><img src="img/women/desctop/banner_3.jpg" alt=""></a>					
+					<a href="women.html"><img src="img/women/desctop/banner_3.jpg" alt=""></a>					
 				</div>
 									<!--TABLET BANNER-->
 
-				<div class="left-banner-tablet banner"><a href=""><img src="img/women/tablet/banner_1.jpg" alt=""></a></div>
-				<div class="right-banner-tablet banner"><a href=""><img src="img/women/tablet/banner_2.jpg" alt=""></a></div>
+				<div class="left-banner-tablet banner"><a href="women.html"><img src="img/women/tablet/banner_1.jpg" alt=""></a></div>
+				<div class="right-banner-tablet banner"><a href="women.html"><img src="img/women/tablet/banner_2.jpg" alt=""></a></div>
 
 									<!--PHONE BANNER-->
 
-				<div class="banner-phone banner"><a href=""><img src="img/women/mobile/banner.jpg" alt=""></a></div>
+				<div class="banner-phone banner"><a href="women.html"><img src="img/women/mobile/banner.jpg" alt=""></a></div>
 
 			</section>
 			<section class="info-wrap">
@@ -488,157 +489,10 @@
 			</div>
 		</footer>
 	</div>
-<script>
-	/*var filterLis = document.querySelectorAll('.filter-block li');
-	function openRoll(e){
-		var target = e.target;
-		if(target.tagName !== 'LI'){
-			target = target.parentNode;
-		}
-		var list = target.lastElementChild;
-		list.classList.toggle('open');
-	}
-	for(var i =0; i<filterLis.length; i++){
-		filterLis[i].addEventListener('click', openRoll);
-	}*/
 
-
-	var firstChildSelected = false;
-	var lastChildSelected = false;
-	var filterWrap = document.querySelector('.filter-desctop');
-	function selectFilter(e){		
-		var target = e.target;
-		if(target.tagName !== 'A'){
-			return;
-		}
-		e.preventDefault();
-		var targetName = target.innerHTML;
-		var optionParent = target.parentElement;
-		while(optionParent.className !== 'options'){
-			optionParent = optionParent.parentElement;
-		}
-		var tabletFilter = document.querySelectorAll('.tablet-filter span');
-		var phoneFilter = document.querySelectorAll('.phone-filter span');
-		
-		var optionTitle = optionParent.querySelector('.option-title');
-		var optionP = optionParent.querySelector('.option-title p');
-		var optionP2 = optionParent.querySelector('.option-title p:last-child');
-		optionP.style.cssText = 'font-size: 12px; padding-top: 15px;';		
-		var selected = optionTitle.querySelector('.selected');
-		
-		selected.innerHTML = targetName;
-		optionParent.style.backgroundColor = '#f7f7f7';
-		
-		//optionParent.querySelector('.select-filter').style.left = '-9999px';
-		for(var i =0; i<tabletFilter.length; i++){
-			if(tabletFilter[i].classList.contains(selected.dataset.filtered)){
-				tabletFilter[i].innerHTML = targetName;
-				tabletFilter[i].style.color = "#c82749";
-			}
-		}
-		for(var i =0; i<phoneFilter.length; i++){
-			if(phoneFilter[i].classList.contains(selected.dataset.filtered)){
-				phoneFilter[i].innerHTML = targetName;
-				phoneFilter[i].style.color = "#c82749";
-			}
-		}
-
-
-		if(optionParent.matches('.options:first-child')){
-			firstChildSelected =true;
-			if(lastChildSelected){
-				filterWrap.style.backgroundImage = 'linear-gradient(to left, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';				
-			}
-			else{
-				filterWrap.style.backgroundImage = 'linear-gradient(to left,  #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';		
-			}					
-		}
-		 else if(optionParent.matches('.options:last-child')){
-		 	lastChildSelected = true;
-		 	if(firstChildSelected){
-		 		filterWrap.style.backgroundImage = 'linear-gradient(to right, #f7f7f7 0, #f7f7f7 19%, #f7f7f7 19%, #fff 19%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';		 		 
-		 	}
-			 else {
-			 	filterWrap.style.backgroundImage = 'linear-gradient(to right, #fff 81%, #fff 81%, #f7f7f7 81%, #f7f7f7 100%)';			 	
-			 }			
-		}	
-
-		return false;		
-	}
-	
-	
-	var selection = document.querySelectorAll('.select-filter li a');
-	for(var i =0; i<selection.length; i++){
-		selection[i].addEventListener('click', selectFilter);
-	}
-	
-	var menuButton = document.querySelector('.menu-phone a');
-	var dropMenu = document.querySelector('.dropdown-menu-wrap');
-	var menuImage = document.querySelector('.menu-ico');
-	var pressed = false;
-	menuButton.onclick = function(e){
-		dropMenu.classList.toggle('pressed');
-		if(dropMenu.classList.contains('pressed')){
-			menuImage.src = 'img/home/phone/ico_close.png';
-		} else{
-			menuImage.src = 'img/home/phone/ico_menu.png';
-		}		
-		return false;
-	}
-
-	function addEvent(evnt, elem, func) {
-	   if (elem.addEventListener)  
-	      elem.addEventListener(evnt,func,false);
-	   else if (elem.attachEvent) { 
-	      elem.attachEvent("on"+evnt, func);
-	   }
-	   else { 
-	      elem[evnt] = func;
-	   }
-	}
-
-	var items = document.querySelectorAll('.item');
-	function ItemOptions(image, name, price){
-		this.image = image;
-		this.name = name;
-		this.price = price;
-	}
-	function saveOptions(e){
-		var target = e.target;
-		if(target.className !== 'item-link'){
-			target = target.parentElement;
-		}
-		//e.preventDefault();
-		var item = target.parentElement;
-		while(!item.classList.contains('item')){
-			item = item.parentElement;
-		}
-		var itemName = item.querySelector('.item-descr').textContent;
-		var itemPhoto = item.querySelector('.item-image').src;
-		var itemPrice = item.querySelector('.item-price .price').textContent;
-
-		var itemObject = new ItemOptions(itemPhoto, itemName, itemPrice);
-		var jsonItem = JSON.stringify(itemObject);
-
-		localStorage.setItem("itemProp", jsonItem);		
-		//return false;
-	}
-	for(var i = 0; i<items.length; i++){
-		items[i].addEventListener('click', saveOptions);
-	}	
-	
-	window.onload = function(){
-		var newHeaderPrice = localStorage.getItem('headerPrice');
-			var newHeaderCount = localStorage.getItem('headerCount');
-			if(newHeaderCount !== null || newHeaderPrice !== null){
-				var headerPrice = document.querySelector('.header-price');
-				var headerCount = document.querySelector('.header-count');
-				headerPrice.textContent = newHeaderPrice;
-				headerCount.textContent = newHeaderCount;
-			} else {
-				return;
-			}
-	}
-</script>
+<script src="js/mobile_menu.js"></script>
+<script src ="js/matches_polyfill.js"></script>
+<script src="js/copy_item_properties.js"></script>
+<script src="js/filter_desctop.js"></script>
 </body>
 </html>
