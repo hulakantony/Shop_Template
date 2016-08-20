@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="filter.css">
+</head>
+<body>
+	<div class="filter-modal">
+		<div class="content-wrap">
+			<p class="drag-title">Drag and select</p>			
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="fashion-title style-title">Fashion</p>	
+			</div>
+			<p class="fashion-values values">
+				<span class="not-selected">Not selected</span>,
+				<span>Nail the 90s</span>, 
+				<span>Casual style</span>, 
+				<span>New Look</span>, 
+				<span>Sport</span>, 
+				<span>Vintage</span>, 
+				<span>Сlassical style</span>
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="product-type-title style-title">Product type</p>	
+			</div>
+			<p class="product-type-values values">
+				<span class="not-selected">Not selected</span>,
+				<span>Petite</span>, 
+				<span>Coats & Jackets</span>, 
+				<span>Dresses</span>, 
+				<span>Jersey Tops</span>			
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="color-title style-title">Color</p>	
+			</div>
+			<p class="color-values values">
+				<span class="not-selected">Not selected</span>,
+				<span>Yellow</span>, 
+				<span>Black</span>, 
+				<span>Blue</span>, 
+				<span>Red</span>,
+				<span>Green</span>,
+				<span>Golden</span>			
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="brand-title style-title">Brand</p>	
+			</div>
+			<p class="brand-values values">
+				<span class="not-selected">Not selected</span>,
+				<span>Chi Chi London</span>, 
+				<span>Antipodium</span>, 
+				<span>Adidas</span>, 
+				<span>New Balance</span>,
+				<span>River Island</span>					
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="size-title style-title">Size</p>	
+			</div>
+			<p class="size-values values">
+				<span class="not-selected">Not selected</span>,
+				<span>UK 2</span>, 
+				<span>UK 18</span>, 
+				<span>UK 18L</span>, 
+				<span>UK 20</span>,
+				<span>UK 20L</span>,
+				<span>UK 20S</span>,	
+				<span>UK 22S</span>,	
+				<span>UK 22</span>						
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="price-range-title style-title">Price range</p>	
+			</div>
+			<p class="price-range-values values">
+				<span class="not-selected">Not selected</span><span class="coma">,</span>
+				<span class="value">To £99</span><span class="coma">,</span> 
+				<span class="value">£100-£299</span><span class="coma">,</span>
+				<span class="value">From £300</span>									
+			</p>
+		</div>		
+	</div>
+<script>
+var dragTitle = document.querySelector('.drag-title');
+	function selectFilterValue(e){
+		var target = e.target;
+		var valuesContainer = target.closest('.values');
+		var titleLeftPosition = dragTitle.getBoundingClientRect().left;
+		var targetLeftPosition = target.getBoundingClientRect().left;
+		if(target.className !== 'value'){
+			return;
+		}
+		target.classList.add('selected');
+		var notSelectedElem = valuesContainer.querySelector('.not-selected');
+
+		if(notSelectedElem){
+			valuesContainer.style.left = -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + notSelectedElem.nextSibling.offsetWidth + 'px';
+		} else {
+			valuesContainer.style.left = -targetLeftPosition + titleLeftPosition + 'px';
+		}
+		
+		valuesContainer.removeChild(notSelectedElem.nextSibling);
+		valuesContainer.removeChild(notSelectedElem);
+		//notSelectedElem.nextSibling.offsetWidth
+	}
+	var values = document.querySelectorAll('.values');
+	for(var i = 0; i< values.length; i++){
+		values[i].addEventListener('click', selectFilterValue)
+	}
+</script>
+</body>
+</html>

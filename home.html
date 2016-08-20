@@ -6,7 +6,10 @@
 	<link rel="stylesheet" href="css/home.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
+
 <body>
+<script src="js/common/price_count_renew.js" async></script>
 	<div class="main-wrapper">
 		<header>
 			<div class="content-wrap">
@@ -60,22 +63,22 @@
 			<section class="carousel-container">
 				<div class="carousel-wrap">
 					<ul class="carousel-desctop carousel">
-						<li><a href=""><img src="img/home/desctop/carousel_1.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/desctop/carousel_3.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/desctop/carousel_1.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/desctop/carousel_3.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/desctop/carousel_2.jpg" alt=""></a></li>
 					</ul>
 					<ul class="carousel-tablet carousel">
-						<li><a href=""><img src="img/home/tablet/carousel_1.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/tablet/carousel_3.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/tablet/carousel_1.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/tablet/carousel_3.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/tablet/carousel_2.jpg" alt=""></a></li>
 					</ul>
 					<ul class="carousel-phone carousel">
-						<li><a href=""><img src="img/home/phone/carousel_1.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/phone/carousel_3.jpg" alt=""></a></li>
-						<li><a href=""><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/phone/carousel_1.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/phone/carousel_3.jpg" alt=""></a></li>
+						<li><a href="women.html"><img src="img/home/phone/carousel_2.jpg" alt=""></a></li>
 					</ul>
 					<ol class="points">
 						<li><a class="active" data-shift="0"></a></li>
@@ -87,19 +90,19 @@
 			</section>
 			<section class="banners-wrap">
 				<div class="left-banner banner">
-					<a href=""><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>					
+					<a href="women.html"><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>					
 				</div>
 				<div class="right-banner banner">
-					<a href=""><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>					
+					<a href="women.html"><img src="img/home/desctop/banner_2_text.jpg" alt=""></a>					
 				</div>
 									<!--TABLET BANNER-->
 
-				<div class="left-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_left.jpg" alt=""></a></div>
-				<div class="right-banner-tablet banner"><a href=""><img src="img/home/tablet/banner_right_1.jpg" alt=""></a></div>
+				<div class="left-banner-tablet banner"><a href="women.html"><img src="img/home/tablet/banner_left.jpg" alt=""></a></div>
+				<div class="right-banner-tablet banner"><a href="women.html"><img src="img/home/tablet/banner_right_1.jpg" alt=""></a></div>
 
 									<!--PHONE BANNER-->
 
-				<div class="banner-phone banner"><a href=""><img src="img/home/phone/banner.jpg" alt=""></a></div>
+				<div class="banner-phone banner"><a href="women.html"><img src="img/home/phone/banner.jpg" alt=""></a></div>
 
 			</section>
 			<section class="arrivals-wrap">
@@ -245,99 +248,8 @@
 			</div>
 		</footer>
 	</div>
-<script>
-	var menuButton = document.querySelector('.menu-phone a');
-	var dropMenu = document.querySelector('.dropdown-menu-wrap');
-	var menuImage = document.querySelector('.menu-ico');
-	var pressed = false;
-	menuButton.onclick = function(e){
-		dropMenu.classList.toggle('pressed');
-		if(dropMenu.classList.contains('pressed')){
-			menuImage.src = 'img/home/phone/ico_close.png';
-		} else{
-			menuImage.src = 'img/home/phone/ico_menu.png';
-		}		
-		return false;
-	}
 
-	function addEvent(evnt, elem, func) {
-	   if (elem.addEventListener)  
-	      elem.addEventListener(evnt,func,false);
-	   else if (elem.attachEvent) { 
-	      elem.attachEvent("on"+evnt, func);
-	   }
-	   else { 
-	      elem[evnt] = func;
-	   }
-	}
-
-	var carousel = document.querySelectorAll('.carousel');
-	var carouselPhone = document.querySelector('.carousel-phone')
-	var points = document.querySelectorAll('.points li a');
-	var position = +document.querySelector('.points li a.active').getAttribute('data-shift');
-	var interval = setInterval(nextStep, 3000);
-	function addActiveClass(e){
-		//clearInterval(interval);
-		for(var i =0; i< points.length; i++){
-			var point = points[i];
-			point.classList.remove('active');
-		}
-		e.target.classList.add('active');
-		for(var j =0; j<carousel.length; j++){
-			carousel[j].style.left = e.target.dataset.shift + '%';
-		}
-		position = +e.target.dataset.shift;
-		clearInterval(interval);
-		//setTimeout(function(){
-			//var interval = setInterval(nextStep, 3000);
-		//}, 10000);
-		return false;
-	}
-	for(var i =0; i<points.length; i++){
-		var point = points[i];
-		addEvent('click', point, addActiveClass);
-	}
-	
-	function nextStep(){
-		if(position <= -300){
-			position = 0;
-			carousel[0].style.left = 0;	
-			carouselPhone.style.left = 0		
-		} else{			
-			carousel[0].style.left = position - 100 + '%';
-			carouselPhone.style.left = position - 100 + '%';
-			position -= 100;			
-		}
-		for(var i = 0; i<points.length; i++){
-			var point = points[i];
-			point.classList.remove('active');
-			if(+point.dataset.shift === position){
-				point.classList.add('active');
-			}
-		}				
-	}
-	
-	
-	
-	//var firstHeaderPrice = document.querySelector('.header-price').textContent;
-	//var firstHeaderCount = document.querySelector('.header-count').textContent;
-	window.onload = function(){
-		
-			//alert(localStorage.getItem('headerPrice'));
-			var newHeaderPrice = localStorage.getItem('headerPrice');
-			var newHeaderCount = localStorage.getItem('headerCount');
-			if(newHeaderCount !== null || newHeaderPrice !== null){
-				var headerPrice = document.querySelector('.header-price');
-				var headerCount = document.querySelector('.header-count');
-				headerPrice.textContent = newHeaderPrice;
-				headerCount.textContent = newHeaderCount;
-			} else {
-				return;
-			}
-			
-		
-	}
-
-</script>
+<script src="js/common/mobile_menu.js"></script>
+<script src="js/home/carousel.js"></script>
 </body>
 </html>
