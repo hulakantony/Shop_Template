@@ -14,110 +14,164 @@
 			<div class="content-wrap">
 				<p class="fashion-title style-title">Fashion</p>	
 			</div>
-			<p class="fashion-values values">
-				<span class="not-selected">Not selected</span>,
-				<span>Nail the 90s</span>, 
-				<span>Casual style</span>, 
-				<span>New Look</span>, 
-				<span>Sport</span>, 
-				<span>Vintage</span>, 
-				<span>Сlassical style</span>
+			<p class="fashion-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">Nail the 90s<span class="coma">, </span></span> 
+				<span class="value">Casual style<span class="coma">, </span></span> 
+				<span class="value">New Look<span class="coma">, </span></span> 
+				<span class="value">Sport<span class="coma">, </span></span> 
+				<span class="value">Vintage<span class="coma">, </span></span> 
+				<span class="value">Сlassical style</span>
 			</p>
 		</div>
 		<div class="values-wrap">
 			<div class="content-wrap">
 				<p class="product-type-title style-title">Product type</p>	
 			</div>
-			<p class="product-type-values values">
-				<span class="not-selected">Not selected</span>,
-				<span>Petite</span>, 
-				<span>Coats & Jackets</span>, 
-				<span>Dresses</span>, 
-				<span>Jersey Tops</span>			
+			<p class="product-type-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">Petite<span class="coma">, </span></span> 
+				<span class="value">Coats & Jackets<span class="coma">, </span></span> 
+				<span class="value">Dresses<span class="coma">, </span></span> 
+				<span class="value">Jersey Tops</span>			
 			</p>
 		</div>
 		<div class="values-wrap">
 			<div class="content-wrap">
 				<p class="color-title style-title">Color</p>	
 			</div>
-			<p class="color-values values">
-				<span class="not-selected">Not selected</span>,
-				<span>Yellow</span>, 
-				<span>Black</span>, 
-				<span>Blue</span>, 
-				<span>Red</span>,
-				<span>Green</span>,
-				<span>Golden</span>			
+			<p class="color-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">Yellow<span class="coma">, </span></span> 
+				<span class="value">Black<span class="coma">, </span></span> 
+				<span class="value">Blue<span class="coma">, </span></span>
+				<span class="value">Red<span class="coma">, </span></span>
+				<span class="value">Green<span class="coma">, </span></span>
+				<span class="value">Golden</span>			
 			</p>
 		</div>
 		<div class="values-wrap">
 			<div class="content-wrap">
 				<p class="brand-title style-title">Brand</p>	
 			</div>
-			<p class="brand-values values">
-				<span class="not-selected">Not selected</span>,
-				<span>Chi Chi London</span>, 
-				<span>Antipodium</span>, 
-				<span>Adidas</span>, 
-				<span>New Balance</span>,
-				<span>River Island</span>					
+			<p class="brand-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">Chi Chi London<span class="coma">, </span></span> 
+				<span class="value">Antipodium<span class="coma">, </span></span> 
+				<span class="value">Adidas<span class="coma">, </span></span> 
+				<span class="value">New Balance<span class="coma">, </span></span>
+				<span class="value">River Island</span>					
 			</p>
 		</div>
 		<div class="values-wrap">
 			<div class="content-wrap">
 				<p class="size-title style-title">Size</p>	
 			</div>
-			<p class="size-values values">
-				<span class="not-selected">Not selected</span>,
-				<span>UK 2</span>, 
-				<span>UK 18</span>, 
-				<span>UK 18L</span>, 
-				<span>UK 20</span>,
-				<span>UK 20L</span>,
-				<span>UK 20S</span>,	
-				<span>UK 22S</span>,	
-				<span>UK 22</span>						
+			<p class="size-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">UK 2<span class="coma">, </span></span> 
+				<span class="value">UK 18<span class="coma">, </span></span>
+				<span class="value">UK 18L<span class="coma">, </span></span> 
+				<span class="value">UK 20<span class="coma">, </span></span>
+				<span class="value">UK 20L<span class="coma">, </span></span>
+				<span class="value">UK 20S<span class="coma">, </span></span>	
+				<span class="value">UK 22S<span class="coma">, </span></span>	
+				<span class="value">UK 22</span>						
 			</p>
 		</div>
 		<div class="values-wrap">
 			<div class="content-wrap">
 				<p class="price-range-title style-title">Price range</p>	
 			</div>
-			<p class="price-range-values values">
-				<span class="not-selected">Not selected</span><span class="coma">,</span>
-				<span class="value">To £99</span><span class="coma">,</span> 
-				<span class="value">£100-£299</span><span class="coma">,</span>
+			<p class="price-range-values values" draggable="true">
+				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="value">To £99<span class="coma">, </span></span>
+				<span class="value">£100-£299<span class="coma">, </span></span>
 				<span class="value">From £300</span>									
 			</p>
 		</div>		
 	</div>
 <script>
+function dragStart(e){
+		var target = e.target;
+		if(target.className !== 'values'){
+			target = target.parentElement;
+		}
+		//var spanElem = target.
+		if(target.className === 'value'){
+			target.removeEventListener('click', selectFilterValue);
+		}
+		
+		var valuesCoords = getCoords(target);
+		var shiftX = e.pageX - valuesCoords.left;
+
+		var bodyCoords = getCoords(document.body);
+		document.onmousemove = function(e){
+			var newLeft = e.pageX - shiftX - bodyCoords.left;
+			if(newLeft > 0){
+				newLeft = 0;
+			}
+			target.style.left = newLeft + 'px';
+		}
+
+		document.onmouseup = function(){
+			document.onmousemove = document.onmouseup = null;
+			//ta
+		}
+		
+		
+		return false;
+	}
+	
+
 var dragTitle = document.querySelector('.drag-title');
+var valuesPosition = 0;
 	function selectFilterValue(e){
 		var target = e.target;
 		var valuesContainer = target.closest('.values');
 		var titleLeftPosition = dragTitle.getBoundingClientRect().left;
 		var targetLeftPosition = target.getBoundingClientRect().left;
+		var valuesPosition = getComputedStyle(valuesContainer).left;
 		if(target.className !== 'value'){
 			return;
 		}
+		var values = valuesContainer.querySelectorAll('.value');
+		for(var i =0; i<values.length; i++){			
+			values[i].classList.remove('selected');				
+		}
 		target.classList.add('selected');
 		var notSelectedElem = valuesContainer.querySelector('.not-selected');
-
-		if(notSelectedElem){
-			valuesContainer.style.left = -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + notSelectedElem.nextSibling.offsetWidth + 'px';
-		} else {
-			valuesContainer.style.left = -targetLeftPosition + titleLeftPosition + 'px';
-		}
 		
-		valuesContainer.removeChild(notSelectedElem.nextSibling);
-		valuesContainer.removeChild(notSelectedElem);
-		//notSelectedElem.nextSibling.offsetWidth
+		if(notSelectedElem !== null){
+			valuesContainer.style.left = -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + 'px';
+			valuesContainer.removeChild(notSelectedElem);		
+		} else {		
+			valuesContainer.style.left = parseInt(valuesPosition) + titleLeftPosition - targetLeftPosition + 'px';			
+		}			
 	}
-	var values = document.querySelectorAll('.values');
+	
+	function getCoords(elem) { 
+      var box = elem.getBoundingClientRect();
+
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
+  }
+  	var values = document.querySelectorAll('.values');
+  	values[0].addEventListener('mousedown', dragStart);
+  	values[0].ondragstart = function() {
+      return false;
+    };
 	for(var i = 0; i< values.length; i++){
-		values[i].addEventListener('click', selectFilterValue)
+		values[i].addEventListener('click', selectFilterValue);
+		
 	}
+	
+
+	
+
+	
 </script>
 </body>
 </html>
