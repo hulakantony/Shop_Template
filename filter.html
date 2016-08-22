@@ -15,7 +15,7 @@
 				<p class="fashion-title style-title">Fashion</p>	
 			</div>
 			<p class="fashion-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">Nail the 90s<span class="coma">, </span></span> 
 				<span class="value">Casual style<span class="coma">, </span></span> 
 				<span class="value">New Look<span class="coma">, </span></span> 
@@ -29,7 +29,7 @@
 				<p class="product-type-title style-title">Product type</p>	
 			</div>
 			<p class="product-type-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">Petite<span class="coma">, </span></span> 
 				<span class="value">Coats & Jackets<span class="coma">, </span></span> 
 				<span class="value">Dresses<span class="coma">, </span></span> 
@@ -41,7 +41,7 @@
 				<p class="color-title style-title">Color</p>	
 			</div>
 			<p class="color-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">Yellow<span class="coma">, </span></span> 
 				<span class="value">Black<span class="coma">, </span></span> 
 				<span class="value">Blue<span class="coma">, </span></span>
@@ -55,7 +55,7 @@
 				<p class="brand-title style-title">Brand</p>	
 			</div>
 			<p class="brand-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">Chi Chi London<span class="coma">, </span></span> 
 				<span class="value">Antipodium<span class="coma">, </span></span> 
 				<span class="value">Adidas<span class="coma">, </span></span> 
@@ -68,7 +68,7 @@
 				<p class="size-title style-title">Size</p>	
 			</div>
 			<p class="size-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">UK 2<span class="coma">, </span></span> 
 				<span class="value">UK 18<span class="coma">, </span></span>
 				<span class="value">UK 18L<span class="coma">, </span></span> 
@@ -84,7 +84,7 @@
 				<p class="price-range-title style-title">Price range</p>	
 			</div>
 			<p class="price-range-values values" draggable="true">
-				<span class="not-selected">Not selected<span class="coma">, </span></span>
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
 				<span class="value">To £99<span class="coma">, </span></span>
 				<span class="value">£100-£299<span class="coma">, </span></span>
 				<span class="value">From £300</span>									
@@ -92,8 +92,6 @@
 		</div>		
 	</div>
 <script>
-
-
  var values = document.querySelectorAll('.values');
  var dragging = false;
  var valuesPosition = 0;
@@ -104,39 +102,61 @@ function dragStart(e){
 		if(target.className !== 'values'){
 			target = target.parentElement;
 		}
+		//e.stopImmediatePropagation();
 		var valueElems = target.querySelectorAll('.value');
-		var notSelectedElem = target.querySelector('.not-selected');		
-		e.stopImmediatePropagation();
+		var notSelectedElem = target.querySelector('.not-selected');
+		
 		var valuesCoords = getCoords(target);
 		var shiftX = e.pageX - valuesCoords.left;
 		var minDistance = 0;
 		var bodyCoords = getCoords(document.body);
+		var lastChildPosition = valueElems[valueElems.length-1].getBoundingClientRect().left;
+		var lastChildWidth = valueElems[valueElems.length-1].offsetWidth;
+
 		document.onmousemove = function(e){
 			e.stopImmediatePropagation();
 			var newLeft = e.pageX - shiftX - bodyCoords.left;
 			if(newLeft > 0){
 				newLeft = 0;
 			}
-			target.style.left = newLeft + 'px';
+			lastChildPosition = valueElems[valueElems.length-1].getBoundingClientRect().left;
 			
+			
+			if(lastChildPosition < titleLeftPosition){					
+				dragging = true;
+				return;
+			
+			}
+			target.style.left = newLeft + 'px';			
 			dragging = true;
-			target.setAttribute('drag','1');	
-
+			target.style.transition = 'none';
+				
 		}
 		document.onmouseup = function(e){
-			document.onmousemove = null;		
-			e.stopImmediatePropagation();
-			var minDistance = getMinDistance(valueElems);
-			console.log(minDistance);			
+			document.onmousemove = null;
+			/*var closestToLeftEdgeElem = getMinDistance(valueElems).closestElem;
+			var closestToLeftEdgeElemHTML = closestToLeftEdgeElem.cloneNode(true);
+			var notSelectedElemHTMl = notSelectedElem.cloneNode(true);
+			//closestToLeftEdgeElem = notSelectedElemHTMl;
+			//notSelectedElem = closestToLeftEdgeElem;
+			//target.replaceChild(closestToLeftEdgeElem, notSelectedElemHTMl)
+			target.insertBefore(closestToLeftEdgeElemHTML, target.children[0]);
+			target.insertBefore(notSelectedElemHTMl, closestToLeftEdgeElem.nextElementSibling);
+			target.removeChild(notSelectedElem);
+			target.removeChild(closestToLeftEdgeElemHTML);	*/
+
+			//target.insertBefore(firstElem, target.children[0]);			
+			var minDistance = getMinDistance(valueElems).minDistance;		
+
 			target.style.left = target.getBoundingClientRect().left - minDistance + 'px';
-			//target.removeEventListener('click', selectFilterValue);
-			e.preventDefault();	
-			return false;	
+			
+			
+			
 		}	
-		target.addEventListener('click', selectFilterValue)	;
-		//e.preventDefault();
-		target.removeAttribute('drag');
+		
+		
 		dragging = false;
+		target.style.transition = '';
 		valuesPosition = getComputedStyle(target).left;
 		return false;
 	}
@@ -155,55 +175,56 @@ function dragStart(e){
 			var elem = array[i];
 			var elemPosition = elem.getBoundingClientRect().left;
 			var elemDistance = 0;
-			if(elemPosition < 0){
-				elemDistance = Math.abs(elemPosition) + titleLeftPosition;
+			if(elemPosition < 0){				
+				continue;
 			} else {
 				elemDistance = elemPosition - titleLeftPosition;
-			}
-			console.log(elemDistance);
-			if(elemDistance < minDistance) minDistance = elemDistance;
+			}			
+			if(elemDistance < minDistance) {
+				minDistance = elemDistance;
+				firstElem = elem.cloneNode(true);
+			}	
 		}
-		return minDistance;
+		return {
+			minDistance: minDistance,
+			closestElem : firstElem
+		};
 	}
 //--------------------------------------------------------------------------------
 	function selectFilterValue(e){
-		e.stopImmediatePropagation();
-		var target = e.target;
-		
-		if(target.className !== 'value'){
-			target = target.parentElement;
+		if(!dragging){
+			//e.stopImmediatePropagation();
+			
+			var target = e.target;
+			
+			if(!target.classList.contains('value')){
+				target = target.parentElement;
+			}
+			
+			var valuesContainer = target.closest('.values');
+			
+			var targetLeftPosition = target.getBoundingClientRect().left;
+			valuesPosition = getComputedStyle(valuesContainer).left;
+			
+			var values = valuesContainer.querySelectorAll('.value');
+			
+			for(var i =0; i<values.length; i++){
+				values[i].classList.remove('selected');				
+			}
+			target.classList.add('selected');
+			var notSelectedElem = valuesContainer.querySelector('.not-selected');
+			
+			if(notSelectedElem !== null){
+				valuesContainer.style.left = parseInt(valuesPosition) -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + 'px';
+				valuesContainer.removeChild(notSelectedElem);		
+			} else {		
+				valuesContainer.style.left = parseInt(valuesPosition) + titleLeftPosition - targetLeftPosition + 'px';			
+			}	
 		}
-		console.log(target.parentElement);
-		var valuesContainer = target.parentElement;
-		//while(valuesContainer.className !== 'values'){
-			//valuesContainer = valuesContainer.parentNode;
-		//}		
-		var targetLeftPosition = target.getBoundingClientRect().left;
-		valuesPosition = getComputedStyle(valuesContainer).left;
-
-		//if(target.closest('.values').hasAttribute('drag')){
-			//return;
-		//}	
-		//e.stopPropagation();
-		var values = valuesContainer.querySelectorAll('.value');
-		for(var i =0; i<values.length; i++){			
-			values[i].classList.remove('selected');				
-		}
-		target.classList.add('selected');
-		var notSelectedElem = valuesContainer.querySelector('.not-selected');
-		
-		if(notSelectedElem !== null){
-			valuesContainer.style.left = parseInt(valuesPosition) -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + 'px';
-			valuesContainer.removeChild(notSelectedElem);		
-		} else {		
-			valuesContainer.style.left = parseInt(valuesPosition) + titleLeftPosition - targetLeftPosition + 'px';			
-		}	
-		
 	}
 	
 	function getCoords(elem) { 
       var box = elem.getBoundingClientRect();
-
       return {
         top: box.top + pageYOffset,
         left: box.left + pageXOffset
@@ -211,7 +232,7 @@ function dragStart(e){
   }
  	
 	
-document.addEventListener('mousedown', dragStart, false);
+document.addEventListener('mousedown', dragStart, true);
 	for(var i = 0; i< values.length; i++){			
 		values[i].addEventListener('click', selectFilterValue);		
 		

@@ -1,3 +1,4 @@
+
 /*RESET CSS START*/
 
 html, body, div, span, applet, object, iframe,
@@ -90,11 +91,11 @@ body{
   	padding-bottom: 35px;
   	padding-left: 5%;
   	position: relative; 
-  	//-webkit-transition:left .3s ease-in-out;
-	//-moz-transition:left .3s ease-in-out;
-	//-o-transition:left .3s ease-in-out;
-	//-ms-transition:left .3s ease-in-out;
-	//transition:left .3s ease-in-out; 	
+  	-webkit-transition:left .3s ease;
+	-moz-transition:left .3s ease;
+	-o-transition:left .3s ease;
+	-ms-transition:left .3s ease;
+	transition:left .3s ease; 	
 }
 .not-selected{
 	color: #000;
