@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="filter.css">
+</head>
+<body>
+	<div class="filter-modal">
+		<div class="content-wrap">
+			<p class="drag-title">Drag and select</p>			
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="fashion-title style-title">Fashion</p>	
+			</div>
+			<p class="fashion-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">Nail the 90s<span class="coma">, </span></span> 
+				<span class="value">Casual style<span class="coma">, </span></span> 
+				<span class="value">New Look<span class="coma">, </span></span> 
+				<span class="value">Sport<span class="coma">, </span></span> 
+				<span class="value">Vintage<span class="coma">, </span></span> 
+				<span class="value">Сlassical style</span>
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="product-type-title style-title">Product type</p>	
+			</div>
+			<p class="product-type-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">Petite<span class="coma">, </span></span> 
+				<span class="value">Coats & Jackets<span class="coma">, </span></span> 
+				<span class="value">Dresses<span class="coma">, </span></span> 
+				<span class="value">Jersey Tops</span>			
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="color-title style-title">Color</p>	
+			</div>
+			<p class="color-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">Yellow<span class="coma">, </span></span> 
+				<span class="value">Black<span class="coma">, </span></span> 
+				<span class="value">Blue<span class="coma">, </span></span>
+				<span class="value">Red<span class="coma">, </span></span>
+				<span class="value">Green<span class="coma">, </span></span>
+				<span class="value">Golden</span>			
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="brand-title style-title">Brand</p>	
+			</div>
+			<p class="brand-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">Chi Chi London<span class="coma">, </span></span> 
+				<span class="value">Antipodium<span class="coma">, </span></span> 
+				<span class="value">Adidas<span class="coma">, </span></span> 
+				<span class="value">New Balance<span class="coma">, </span></span>
+				<span class="value">River Island</span>					
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="size-title style-title">Size</p>	
+			</div>
+			<p class="size-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">UK 2<span class="coma">, </span></span> 
+				<span class="value">UK 18<span class="coma">, </span></span>
+				<span class="value">UK 18L<span class="coma">, </span></span> 
+				<span class="value">UK 20<span class="coma">, </span></span>
+				<span class="value">UK 20L<span class="coma">, </span></span>
+				<span class="value">UK 20S<span class="coma">, </span></span>	
+				<span class="value">UK 22S<span class="coma">, </span></span>	
+				<span class="value">UK 22</span>						
+			</p>
+		</div>
+		<div class="values-wrap">
+			<div class="content-wrap">
+				<p class="price-range-title style-title">Price range</p>	
+			</div>
+			<p class="price-range-values values" draggable="true">
+				<span class="not-selected value">Not selected<span class="coma">, </span></span>
+				<span class="value">To £99<span class="coma">, </span></span>
+				<span class="value">£100-£299<span class="coma">, </span></span>
+				<span class="value">From £300</span>									
+			</p>
+		</div>		
+	</div>
+	<script src="js/common/matches_polyfill.js"></script>
+	<script src="js/common/closest_polyfill.js"></script>
+<script>
+ var values = document.querySelectorAll('.values');
+ var dragging = false;
+ var valuesPosition = 0;
+ var dragTitle = document.querySelector('.drag-title');
+ var titleLeftPosition = dragTitle.getBoundingClientRect().left;
+function dragStart(e){
+		var target = e.target;
+		if(target.className !== 'values'){
+			target = target.parentElement;
+		}
+		
+		var valueElems = target.querySelectorAll('.value');
+		var notSelectedElem = target.querySelector('.not-selected');		
+		var valuesCoords = getCoords(target);
+		var shiftX = e.pageX - valuesCoords.left;
+		var minDistance = 0;
+		var bodyCoords = getCoords(document.body);
+		var lastChildPosition = valueElems[valueElems.length-1].getBoundingClientRect().left;
+		
+		document.onmousemove = function(e){
+			e.stopImmediatePropagation();
+			var newLeft = e.pageX - shiftX - bodyCoords.left;
+			if(newLeft > 0){
+				newLeft = 0;
+			}
+			lastChildPosition = valueElems[valueElems.length-1].getBoundingClientRect().left;			
+			if(lastChildPosition < titleLeftPosition){					
+				dragging = true;
+				return;
+			
+			}
+			target.style.left = newLeft + 'px';			
+			dragging = true;
+			target.style.transition = 'none';
+				
+		}
+		document.onmouseup = function(e){
+			document.onmousemove = null;
+			var minDistance = getMinDistance(valueElems).minDistance;		
+			target.style.left = target.getBoundingClientRect().left - minDistance + 'px';			
+		}	
+		
+		
+		dragging = false;
+		target.style.transition = '';
+		valuesPosition = getComputedStyle(target).left;
+		return false;
+	}
+//------------------------------------------------------------------------------
+	function getMinDistance(array){
+		var firstElem = array[0];
+		var firstElemPosition = firstElem.getBoundingClientRect().left;
+		var minDistance = 0;
+		if(firstElemPosition < 0){
+			minDistance = Math.abs(firstElemPosition) + titleLeftPosition;
+		} else {
+			minDistance = firstElemPosition - titleLeftPosition;
+		}
+		
+		for(var i =1; i< array.length; i++){
+			var elem = array[i];
+			var elemPosition = elem.getBoundingClientRect().left;
+			var elemDistance = 0;
+			if(elemPosition < 0){				
+				continue;
+			} else {
+				elemDistance = elemPosition - titleLeftPosition;
+			}			
+			if(elemDistance < minDistance) {
+				minDistance = elemDistance;
+				firstElem = elem.cloneNode(true);
+			}	
+		}
+		return {
+			minDistance: minDistance,
+			closestElem : firstElem
+		};
+	}
+//--------------------------------------------------------------------------------
+	function selectFilterValue(e){
+		if(!dragging){
+			var target = e.target;			
+			if(!target.classList.contains('value')){
+				target = target.parentElement;
+			}
+			
+			var valuesContainer = target.closest('.values');			
+			var targetLeftPosition = target.getBoundingClientRect().left;
+			valuesPosition = getComputedStyle(valuesContainer).left;			
+			var values = valuesContainer.querySelectorAll('.value');
+			
+			for(var i =0; i<values.length; i++){
+				values[i].classList.remove('selected');				
+			}
+			target.classList.add('selected');
+			var notSelectedElem = valuesContainer.querySelector('.not-selected');
+			
+			if(notSelectedElem !== null){
+				valuesContainer.style.left = parseInt(valuesPosition) -targetLeftPosition + titleLeftPosition + notSelectedElem.offsetWidth + 'px';
+				valuesContainer.removeChild(notSelectedElem);		
+			} else {		
+				valuesContainer.style.left = parseInt(valuesPosition) + titleLeftPosition - targetLeftPosition + 'px';			
+			}	
+		}
+	}
+	
+	function getCoords(elem) { 
+      var box = elem.getBoundingClientRect();
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
+  }
+ 	
+	
+document.addEventListener('mousedown', dragStart, true);
+	for(var i = 0; i< values.length; i++){			
+		values[i].addEventListener('click', selectFilterValue);		
+		
+		values[i].ondragstart = function() {return false;};
+}
+	function addEvent(evnt, elem, func) {
+	   if (elem.addEventListener)  
+	      elem.addEventListener(evnt,func,false);
+	   else if (elem.attachEvent) { 
+	      elem.attachEvent("on"+evnt, func);
+	   }
+	   else { 
+	      elem[evnt] = func;
+	   }
+	}
+
+	
+	
+</script>
+</body>
+</html>

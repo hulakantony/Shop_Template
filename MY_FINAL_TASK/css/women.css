@@ -273,6 +273,57 @@ input.search-input{
 .phone-filter-wrap{
 	display: none;
 }
+/*filter modal window for tablet/mobile*/
+.filter-modal{
+	position: absolute;
+	height: 670px;
+	width: 100%;
+	overflow: hidden;
+	display: none;
+	z-index: 9999;
+	background: #fff;
+}
+.drag-title{
+	font-family: 'Crimson', serif;
+	font-size: 1em;
+	padding: 30px 0 50px 0;
+	font-style: italic;
+}
+.style-title{
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.75em;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.values{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2.25em;
+	font-weight: bold;
+	text-overflow: clip;
+	white-space: nowrap;
+  	word-wrap: normal; 
+  	color: #a8a8a8;
+  	padding-bottom: 35px;
+  	padding-left: 5%;
+  	position: relative; 
+  	-webkit-transition:left .3s ease;
+	-moz-transition:left .3s ease;
+	-o-transition:left .3s ease;
+	-ms-transition:left .3s ease;
+	transition:left .3s ease; 	
+}
+.not-selected{
+	color: #000;
+}
+.values span{
+	cursor: pointer;
+}
+.coma{
+	color: #a8a8a8;
+}
+.selected{
+	color: #f14a58;
+}
 
 					/*------FILTER END-------*/
 
@@ -643,6 +694,9 @@ footer.phone-footer{
 .carousel-phone{
 	display: none;
 }
+.pressed{
+	display: block;
+}
 					/*------FOOTER END-------*/
 					/*------DESCTOP MEDIA QUERIES START-------*/	
 @media screen and (min-width: 1024px) and (max-width: 1100px){
@@ -660,10 +714,7 @@ footer.phone-footer{
 @media screen and (min-width: 480px) and (max-width: 1024px){
 	.content-wrap{
 		width: 89.3333%;		
-	}
-	body{
-		min-width: 480px;
-	}
+	}	
 	.menu li{
 		margin-right: 3.25%;
 	}
@@ -678,28 +729,54 @@ footer.phone-footer{
 	}
 	.filter-tablet{
 		height: 65px;
-		padding-top: 23px;
 		border-top: 1px solid #e5e5e5;
 		border-bottom: 1px solid #e5e5e5;
 		position: relative;
 	}
 	
+	.fixed-filter{
+		position: fixed;
+		background: #fff;
+		z-index: 1000;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
 	.tablet-filter{
 		display: block;
-		cursor: pointer;
+		cursor: pointer;		
 	}
 	.tablet-filter-wrap{
-		display: block;
-	}
-	.tablet-filter{
+		display: block;	
+	}	
+	.tablet-filter-text{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 1em;
 		font-weight: bold;	
 		display: inline-block;
-		cursor: pointer;
-		width: 95%;  		
-  		position:relative;  		
+		cursor: pointer;			
+  		line-height: 63px;
+  		overflow: hidden;		
+		text-overflow: clip;
+		white-space: nowrap;
+  		word-wrap: normal; 
+  		cursor: pointer;  		  				
 	}	
+	.transparent-gradient-tablet{
+		cursor: pointer;		
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 63px;
+		background-image: -webkit-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
+		background-image: -moz-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%); 
+		background-image: -o-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
+		background-image: linear-gradient(to left, #fff 0, transparent 15%, transparent 100%)
+	}
+	.transparent-gradient-phone{
+		display: none;
+	}
 	.tablet-filter span{
 		display: inline-block;
 		padding-left: 2px;			
@@ -707,9 +784,12 @@ footer.phone-footer{
 	.tablet-filter span:first-child{
 		padding-left: 0;
 	}	
-	.tablet-filter-wrap img{
-		margin-top: 9px;
-		float: right;
+	.tablet-filter-wrap .tablet-filter-image{
+		vertical-align: middle;		
+		padding-left: 15px;
+	}
+	.tablet-filter-wrap .phone-filter-image{
+		display: none;
 	}
 	.left-banner, .right-banner, .middle-banner{
 		display: none;
@@ -902,9 +982,12 @@ footer.phone-footer{
 @media screen and (min-width: 480px) and (max-width: 560px){
 	body{
 		font-size: 14px;
-	}
+	}	
 	.content-wrap{
 		width: 95%;
+	}
+	.values{
+		padding-left: 2.5%;
 	}
 	.menu li{
 		margin-right: 2.4%;
@@ -925,13 +1008,10 @@ footer.phone-footer{
 
 
 					/*------MOBILE MEDIA QUERIES START-------*/		
-@media all and (max-width: 480px){
+@media screen and (max-width: 480px){
 	.content-wrap{
 		width: 89.3333%;
-	}	
-	body{
-		min-width: 375px;
-	}
+	}		
 	header{
 		height: 70px;
 	}
@@ -967,27 +1047,31 @@ footer.phone-footer{
 		padding-left: 20px;
 		border-left: 1px solid #e5e5e5;
 	}	
-	
-	.filter-tablet{
-		display: none;
-	}
+	.fixed-filter{
+		position: fixed;
+		background: #fff;
+		z-index: 1000;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}	
 	.filter-desctop{
 		display: none;
 	}
-	.filter-mobile{
+	.filter-tablet{
 		height: 55px;
-		padding-top: 18px;
 		border-top: 1px solid #e5e5e5;
 		border-bottom: 1px solid #e5e5e5;
 		position: relative;
 	}
-	.phone-filter-wrap{
+	.tablet-filter-wrap{
 		display: block;
 	}
-	.phone-filter{
+	.tablet-filter-text{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 0.875em;
-		font-weight: bold;	
+		line-height: 53px;
+		font-weight: bold;		
 		display: inline-block;
 		cursor: pointer;
 		width: 95%;
@@ -997,28 +1081,27 @@ footer.phone-footer{
   		word-wrap: normal; 
   		position:relative;  		
 	}
-	.transparent-gradient{
+	.transparent-gradient-phone{
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 95%;
-		height: 30px;
+		height: 53px;
 		background-image: -webkit-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
 		background-image: -moz-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%); 
 		background-image: -o-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
 		background-image: linear-gradient(to left, #fff 0, transparent 15%, transparent 100%)
 	}
-	.phone-filter span{
-		display: inline-block;
-		padding-left: 2px;		
-			
+	.transparent-gradient-tablet{
+		display: none;
 	}
-	.phone-filter span:first-child{
-		padding-left: 0;
-	}	
-	.phone-filter-wrap img{
-		margin-top: 8px;
+		
+	.phone-filter-image{
+		margin-top: 25px;
 		float: right;
+	}
+	.tablet-filter-image{
+		display: none;
 	}
 	.left-banner, .right-banner, .middle-banner{
 		display: none;
@@ -1237,9 +1320,7 @@ footer.phone-footer{
 		font-size: 	1.625em;
 		font-weight: bold;
 	}
-	.pressed{
-		display: block;
-	}
+	
 /*------------------DROPDOWN MENU FOR PHONE END----------------------------*/
 }
 

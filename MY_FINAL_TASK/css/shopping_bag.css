@@ -211,6 +211,7 @@ input.search-input{
 	font-size: 1.25em;	
 	line-height: 30px;
 	font-weight: bold;
+	padding-top: 20px;
 }
 .item{
 	width: 50%;

@@ -1,0 +1,109 @@
+/*RESET CSS START*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+	box-sizing: border-box;
+}
+					/*RESET CSS END*/
+@font-face {
+    font-family: 'Crimson'; 
+    src: url(fonts/Crimson.otf); 
+}
+body{
+	font-size: 16px;
+	max-width: 1024px;
+}
+.content-wrap{
+	width: 89.3333%;
+	margin: 0 auto;
+}
+.filter-modal{
+	position: fixed;
+	height: 670px;
+	width: 100%;
+	overflow: hidden;
+}
+.drag-title{
+	font-family: 'Crimson', serif;
+	font-size: 1em;
+	padding: 30px 0 50px 0;
+	font-style: italic;
+}
+.style-title{
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.75em;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.values{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2.25em;
+	font-weight: bold;
+	text-overflow: clip;
+	white-space: nowrap;
+  	word-wrap: normal; 
+  	color: #a8a8a8;
+  	padding-bottom: 35px;
+  	padding-left: 2.5%;
+  	position: relative; 
+  	-webkit-transition:left .3s ease;
+	-moz-transition:left .3s ease;
+	-o-transition:left .3s ease;
+	-ms-transition:left .3s ease;
+	transition:left .3s ease; 	
+}
+.not-selected{
+	color: #000;
+}
+.values span{
+	cursor: pointer;
+}
+.coma{
+	color: #a8a8a8;
+}
+.selected{
+	color: #f14a58;
+}
