@@ -89,6 +89,7 @@ a:hover{
 					/*------HEADER START-------*/
 header{
 	height: 120px;
+	//position: relative;
 }
 .content-wrap{
 	max-width: 1180px;	
@@ -171,6 +172,22 @@ input.search-input{
 	right: 0;
 	top: 5px;
 }
+.search-for-tablet{
+	display: none;
+	position: absolute;
+	top: 100px;
+	z-index: 99999;
+	right: 0;
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #e5e5e5;
+}
+.search-open{
+	display: block;
+}
+.search-for-tablet .search-input{
+	display: block;
+}
 .dropdown-menu-wrap{
 	display: none;
 }
@@ -215,15 +232,21 @@ input.search-input{
 .option-title{
 	float: left;
 	width: 85%;
+	height: 63px;
 }
 .option-title p{
-	display: block;	
+	display: block;		
 }
 .option-title p.selected{
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.125em;
+	line-height: 22px;
 	color: #c82749;
-	padding-top: 5px;
+	padding-top: 5px;	
+	overflow: hidden;		
+	text-overflow: clip;
+	white-space: nowrap;
+  	word-wrap: normal; 
 }
 .filter-block li img{
 	float: right;
@@ -270,9 +293,70 @@ input.search-input{
 .tablet-filter-wrap{
 	display: none;
 }
-.phone-filter-wrap{
-	display: none;
-}
+.filter-tablet{
+		height: 65px;
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+		position: relative;
+		display: none;
+	}	
+	.fixed-filter{
+		position: fixed;
+		background: #fff;
+		z-index: 1000;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+	.tablet-filter{
+		display: block;
+		cursor: pointer;		
+	}
+	.tablet-filter-wrap{
+		display: block;	
+	}	
+	.tablet-filter-text{
+		font-family: 'Open Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;	
+		display: inline-block;
+		cursor: pointer;			
+  		line-height: 63px;
+  		overflow: hidden;		
+		text-overflow: clip;
+		white-space: nowrap;
+  		word-wrap: normal; 
+  		cursor: pointer;  		  				
+	}	
+	.transparent-gradient-tablet{
+		cursor: pointer;		
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 63px;
+		background-image: -webkit-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
+		background-image: -moz-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%); 
+		background-image: -o-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
+		background-image: linear-gradient(to left, #fff 0, transparent 15%, transparent 100%)
+	}
+	.transparent-gradient-phone{
+		display: none;
+	}
+	.tablet-filter span{
+		display: inline-block;
+		padding-left: 2px;			
+	}
+	.tablet-filter span:first-child{
+		padding-left: 0;
+	}	
+	.tablet-filter-wrap .tablet-filter-image{
+		vertical-align: middle;		
+		padding-left: 15px;
+	}
+	.tablet-filter-wrap .phone-filter-image{
+		display: none;
+	}
 /*filter modal window for tablet/mobile*/
 .filter-modal{
 	position: absolute;
@@ -304,7 +388,7 @@ input.search-input{
   	word-wrap: normal; 
   	color: #a8a8a8;
   	padding-bottom: 35px;
-  	padding-left: 5%;
+  	padding-left: 4.9%;
   	position: relative; 
   	-webkit-transition:left .3s ease;
 	-moz-transition:left .3s ease;
@@ -695,7 +779,7 @@ footer.phone-footer{
 	display: none;
 }
 .pressed{
-	display: block;
+	display: block !important;
 }
 					/*------FOOTER END-------*/
 					/*------DESCTOP MEDIA QUERIES START-------*/	
@@ -727,70 +811,11 @@ footer.phone-footer{
 	.filter-desctop{
 		display: none;
 	}
+
 	.filter-tablet{
-		height: 65px;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
-		position: relative;
-	}
-	
-	.fixed-filter{
-		position: fixed;
-		background: #fff;
-		z-index: 1000;
-		width: 100%;
-		top: 0;
-		left: 0;
-	}
-	.tablet-filter{
 		display: block;
-		cursor: pointer;		
 	}
-	.tablet-filter-wrap{
-		display: block;	
-	}	
-	.tablet-filter-text{
-		font-family: 'Open Sans', sans-serif;
-		font-size: 1em;
-		font-weight: bold;	
-		display: inline-block;
-		cursor: pointer;			
-  		line-height: 63px;
-  		overflow: hidden;		
-		text-overflow: clip;
-		white-space: nowrap;
-  		word-wrap: normal; 
-  		cursor: pointer;  		  				
-	}	
-	.transparent-gradient-tablet{
-		cursor: pointer;		
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 63px;
-		background-image: -webkit-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
-		background-image: -moz-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%); 
-		background-image: -o-linear-gradient(to left, #fff 0, transparent 15%, transparent 100%);
-		background-image: linear-gradient(to left, #fff 0, transparent 15%, transparent 100%)
-	}
-	.transparent-gradient-phone{
-		display: none;
-	}
-	.tablet-filter span{
-		display: inline-block;
-		padding-left: 2px;			
-	}
-	.tablet-filter span:first-child{
-		padding-left: 0;
-	}	
-	.tablet-filter-wrap .tablet-filter-image{
-		vertical-align: middle;		
-		padding-left: 15px;
-	}
-	.tablet-filter-wrap .phone-filter-image{
-		display: none;
-	}
+
 	.left-banner, .right-banner, .middle-banner{
 		display: none;
 	}
@@ -1046,43 +1071,36 @@ footer.phone-footer{
 		padding-top: 28px;
 		padding-left: 20px;
 		border-left: 1px solid #e5e5e5;
-	}	
+	}
 	.fixed-filter{
 		position: fixed;
 		background: #fff;
-		z-index: 1000;
+		z-index: 9999;
 		width: 100%;
 		top: 0;
 		left: 0;
-	}	
+	}		
 	.filter-desctop{
 		display: none;
 	}
 	.filter-tablet{
 		height: 55px;
 		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
-		position: relative;
+		border-bottom: 1px solid #e5e5e5;		
+		display: block;
 	}
 	.tablet-filter-wrap{
 		display: block;
 	}
-	.tablet-filter-text{
-		font-family: 'Open Sans', sans-serif;
+	.tablet-filter-text{		
 		font-size: 0.875em;
-		line-height: 53px;
-		font-weight: bold;		
-		display: inline-block;
-		cursor: pointer;
-		width: 95%;
-		overflow: hidden;		
-		text-overflow: clip;
-		white-space: nowrap;
-  		word-wrap: normal; 
-  		position:relative;  		
+		line-height: 53px;		
+		width: 95%;				
 	}
 	.transparent-gradient-phone{
+		display: block;
 		position: absolute;
+		cursor: pointer;
 		top: 0;
 		left: 0;
 		width: 95%;
@@ -1096,9 +1114,10 @@ footer.phone-footer{
 		display: none;
 	}
 		
-	.phone-filter-image{
+	.tablet-filter-wrap .phone-filter-image{
 		margin-top: 25px;
 		float: right;
+		display: block;
 	}
 	.tablet-filter-image{
 		display: none;
@@ -1296,6 +1315,7 @@ footer.phone-footer{
 	.dropdown-menu-wrap{				
 		display: none;
 		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
 	}
 	.dropdown-menu li{
 		margin-top: 35px;

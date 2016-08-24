@@ -36,8 +36,11 @@
 						<li><a href="">Store Locator</a></li>
 						<li><input type="search" placeholder="Style Name" class="search-input">
 						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a></li>
-					</ul>
+					</ul>					
 				</nav>				
+				</div>
+				<div class="search-for-tablet">
+					<input type="search" placeholder="Style Name" class="search-input">
 				</div>				
 			</div>			
 		</header>
@@ -53,9 +56,9 @@
 					<li><a href="">Clearance</a></li>
 					<li><a href="">Store Locator</a></li>
 					<li><input type="search" placeholder="Style Name" class="search-input">
-						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a>
-					</li>
-				</ul>
+					<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a>
+					</li>					
+				</ul>				
 			</div>
 		</div>
 		<main>
@@ -178,7 +181,7 @@
 							<div class="content-wrap">
 								<p class="fashion style-title">Fashion</p>	
 							</div>
-							<p class="fashion-values values" draggable="true">
+							<p class="fashion-values values" draggable="true" data-filtered="fashion">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">Nail the 90s<span class="coma">, </span></span> 
 								<span class="value">Casual style<span class="coma">, </span></span> 
@@ -192,7 +195,7 @@
 							<div class="content-wrap">
 								<p class="product-type style-title">Product type</p>	
 							</div>
-							<p class="product-type-values values" draggable="true">
+							<p class="product-type-values values" draggable="true" data-filtered="product-type">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">Petite<span class="coma">, </span></span> 
 								<span class="value">Coats & Jackets<span class="coma">, </span></span> 
@@ -204,7 +207,7 @@
 							<div class="content-wrap">
 								<p class="color style-title">Color</p>	
 							</div>
-							<p class="color-values values" draggable="true">
+							<p class="color-values values" draggable="true" data-filtered="color">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">Yellow<span class="coma">, </span></span> 
 								<span class="value">Black<span class="coma">, </span></span> 
@@ -218,7 +221,7 @@
 							<div class="content-wrap">
 								<p class="brand style-title">Brand</p>	
 							</div>
-							<p class="brand-values values" draggable="true">
+							<p class="brand-values values" draggable="true" data-filtered="brand">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">Chi Chi London<span class="coma">, </span></span> 
 								<span class="value">Antipodium<span class="coma">, </span></span> 
@@ -231,7 +234,7 @@
 							<div class="content-wrap">
 								<p class="size style-title">Size</p>	
 							</div>
-							<p class="size-values values" draggable="true">
+							<p class="size-values values" draggable="true" data-filtered="size">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">UK 2<span class="coma">, </span></span> 
 								<span class="value">UK 18<span class="coma">, </span></span>
@@ -247,7 +250,7 @@
 							<div class="content-wrap">
 								<p class="price-range style-title">Price range</p>	
 							</div>
-							<p class="price-range-values values" draggable="true">
+							<p class="price-range-values values" draggable="true" data-filtered="price-range">
 								<span class="not-selected value">Not selected<span class="coma">, </span></span>
 								<span class="value">To £99<span class="coma">, </span></span>
 								<span class="value">£100-£299<span class="coma">, </span></span>
@@ -564,55 +567,16 @@
 <script src="js/common/closest_polyfill.js"></script>
 <script src="js/common/mobile_menu.js"></script>
 <script src="js/women/copy_item_properties.js"></script>
-<script src="js/women/filter_desctop.js"></script>
 <script src="js/women/draggable_filter.js"></script>
 <script>
-var filterTablet = document.querySelector('.filter-tablet');
-var filterModal = document.querySelector('.filter-modal');
-var filterTopPosition = filterTablet.getBoundingClientRect().top + window.pageYOffset;
-var items = document.querySelector('.items');
-var itemsBottomPosition = items.getBoundingClientRect().bottom;
- function getCoords(elem) {
-      var box = elem.getBoundingClientRect();
-
-      var body = document.body;
-      var docEl = document.documentElement;
-
-      var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-      var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-      var clientTop = docEl.clientTop || body.clientTop || 0;
-      var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-      var top = box.top + scrollTop - clientTop;
-      var left = box.left + scrollLeft - clientLeft;
-
-      return {
-        top: top,
-        left: left
-      };
-    }
-window.onscroll = function(){
-	var filterTabletPosition = getCoords(filterTablet);
-	filterModal.style.top = filterTabletPosition.top + filterTablet.offsetHeight + 'px';
-	if(filterTablet.classList.contains('fixed-filter') && filterTopPosition > window.pageYOffset){
-		filterTablet.classList.remove('fixed-filter');
-				
-	} else if(window.pageYOffset >= filterTopPosition){
-		filterTablet.classList.add('fixed-filter');		
-		filterTablet.style.display = '';
-		filterModal.style.visibility = '';
-		if(window.pageYOffset >= itemsBottomPosition){
-			filterTablet.classList.remove('fixed-filter');
-			filterTablet.style.display = 'none';
-			filterModal.style.visibility = 'hidden';
+	var searchIcon = document.querySelector('.search-icon');
+	var searchInputforTablet = document.querySelector('.search-for-tablet');
+	searchIcon.onclick = function(){
+		if(document.body.offsetWidth < 1024 && document.body.offsetWidth > 480){
+			searchInputforTablet.classList.toggle('search-open');
 		}
-	} 
-}
-filterTablet.onclick = function(){
-	
-	filterModal.classList.toggle('pressed');
-}
+		return false;
+	}
 
 </script>
 </body>

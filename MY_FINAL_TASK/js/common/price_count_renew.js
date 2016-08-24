@@ -7,6 +7,10 @@
 		var headerCount = document.querySelector('.header-count');
 		headerPrice.textContent = newHeaderPrice;
 		headerCount.textContent = newHeaderCount;
+		if(newHeaderCount === ''){
+			headerPrice.style.display = 'none';
+			headerCount.style.display = 'none';
+		}
 	} else {
 		return;
 	}	

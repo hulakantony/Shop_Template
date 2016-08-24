@@ -8,17 +8,13 @@
 		if(target.tagName !== 'A'){
 			return;
 		}
-		e.preventDefault();
-		//firstFilterElem.classList.remove('done');
-		//lastFilterElem.classList.remove('done');
-		//filterWrap.style.background = "linear-gradient(to right, #f7f7f7 50%, #fff 50%, #fff 100%)";
+		e.preventDefault();		
 		var targetName = target.innerHTML;
 		var optionParent = target.parentElement;
 		while(optionParent.className !== 'options'){
 			optionParent = optionParent.parentElement;
 		}
 		var tabletFilter = document.querySelectorAll('.tablet-filter-text span');
-		var phoneFilter = document.querySelectorAll('.phone-filter span');
 		
 		var optionTitle = optionParent.querySelector('.option-title');
 		var optionP = optionParent.querySelector('.option-title p');		
@@ -40,14 +36,9 @@
 			if(tabletFilter[i].classList.contains(selected.dataset.filtered)){
 				tabletFilter[i].innerHTML = targetName;
 				tabletFilter[i].style.color = "#c82749";
+				
 			}
-		}
-		for(var i =0; i<phoneFilter.length; i++){
-			if(phoneFilter[i].classList.contains(selected.dataset.filtered)){
-				phoneFilter[i].innerHTML = targetName;
-				phoneFilter[i].style.color = "#c82749";
-			}
-		}
+		}		
 		
 		
 		if(firstChildSelected && lastChildSelected){

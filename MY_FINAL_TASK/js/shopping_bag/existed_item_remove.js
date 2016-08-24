@@ -44,6 +44,8 @@
 		if(count === 0){
 			headerCount.textContent = '';
 			headerPrice.textContent = '';
+			headerPrice.style.display = 'none';
+			headerCount.style.display = 'none';
 			localStorage.setItem('headerPrice', headerPrice.textContent);
 			localStorage.setItem('headerCount', headerCount.textContent);
 			container.innerHTML = '<h2 class="when-empty-bag">Your shopping bag is empty. Use Catalog to add new items</h2>';
