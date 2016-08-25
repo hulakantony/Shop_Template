@@ -37,8 +37,12 @@
 						<li><a href="">Store Locator</a></li>
 						<li><input type="search" placeholder="Style Name" class="search-input">
 						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a></li>
+						<li><a href="" class="search-icon-tablet"><img src="img/home/desctop/search_ico.png" alt=""></a></li>	
 					</ul>
 				</nav>				
+				</div>
+				<div class="search-for-tablet">
+					<input type="search" placeholder="Style Name" class="search-input">
 				</div>				
 			</div>			
 		</header>
@@ -60,7 +64,7 @@
 			</div>
 		</div>
 		<main>
-			<section class="carousel-container">
+			<figure class="carousel-container">
 				<div class="carousel-wrap">
 					<ul class="carousel-desctop carousel">
 						<li><a href="women.html"><img src="img/home/desctop/carousel_1.jpg" alt=""></a></li>
@@ -87,8 +91,8 @@
 						<li><a data-shift="-300"></a></li>
 					</ol>
 				</div>
-			</section>
-			<section class="banners-wrap">
+			</figure>
+			<figure class="banners-wrap">
 				<div class="left-banner banner">
 					<a href="women.html"><img src="img/home/desctop/banner_1_text.jpg" alt=""></a>					
 				</div>
@@ -104,52 +108,50 @@
 
 				<div class="banner-phone banner"><a href="women.html"><img src="img/home/phone/banner.jpg" alt=""></a></div>
 
-			</section>
+			</figure>
 			<section class="arrivals-wrap">
 			<div class="content-wrap">
 				<h2>New arrivals</h2>
-				<section class="product-item-list">
-					<article class="product">
+				<div class="product-item-list">
+					<figure class="product">
 						<a href=""><img src="img/home/desctop/arrival_item_1.jpg" alt=""></a>
 						<a href="">
 							<p class="item-descr">Straight Leg Jeans</p>
 						</a>
 						<p class="price">£55.00</p>
-					</article>
-					<article class="product">
+					</figure>
+					<figure class="product">
 						<a href=""><img src="img/home/desctop/arrival_item_2.jpg" alt=""></a>
 						<a href="">
 							<p class="item-descr">Boyfriend T-Shirt with<br>
 							Bohemian Print</p>
 						</a>
 						<p class="price">£34.25</p>
-					</article>
-					<article class="product">
+					</figure>
+					<figure class="product">
 						<a href=""><img src="img/home/desctop/arrival_item_3.jpg" alt=""></a>
 						<a href="">
 							<p class="item-descr">Only Busted Knee Jean</p>
 						</a>
 						<p class="price">£140.50</p>
-					</article>
-					<article class="product">
+					</figure>
+					<figure class="product">
 						<a href=""><img src="img/home/desctop/arrival_item_4.jpg" alt=""></a>
 						<a href="">
 							<p class="item-descr">Only Skinny Jeans</p>
 						</a>
 						<p class="price">£12.75</p>
-					</article>
-					
-				</section>
-				<section class="more-arrivals">
-					<button class="all-arrivals-btn">All arrivals</button>
-				</section>
+					</figure>					
+				</div>
+				<form class="more-arrivals" action="women.html">
+					<button class="all-arrivals-btn button">All arrivals</button>
+				</form>
 			</div>
 			</section>
-			<section class="info-wrap">
-				
+			<section class="info-wrap">				
 					<div class="phone-wrap-first">
 						<div class="content-wrap">
-							<div class="links info-block">
+							<nav class="links info-block">
 								<h3>Quick Links</h3>
 								<ul>
 									<li><a href="">Store locator</a></li>
@@ -158,8 +160,8 @@
 									<li><a href="">About us</a></li>
 									<li><a href="">Support</a></li>
 								</ul>
-							</div>
-							<div class="customers-care info-block">
+							</nav>
+							<nav class="customers-care info-block">
 								<h3>Customer Care</h3>
 								<ul>
 									<li><a href="">Customer service</a></li>
@@ -169,7 +171,7 @@
 									<li><a href="">Contact us</a></li>
 									<li><a href="">Careers</a></li>
 								</ul>
-							</div>
+							</nav>
 						</div>
 					</div>
 					<div class="phone-wrap-second">
@@ -204,29 +206,29 @@
 					<p class="copyright footer-item">© 2010–2015, The Template Group inc.</p>
 					<div class="share footer-item">
 						<ul>
-							<li class="share-text"><p>Share</p></li>
+							<li class="share-text"><a href=""><p>Share</p></a></li>
 							<li class="share-count"><p>1 437</p></li>
 						</ul>
 					</div>
-					<div class="footer-nav footer-item">
+					<nav class="footer-nav footer-item">
 						<ul>
 							<li><a href="">Legal notice</a></li>
 							<li><a href="">Privacy policy</a></li>
 							<li><a href="">Site map</a></li>
 						</ul>
-					</div>		
+					</nav>		
 				</div>				
 		</footer>
 		<footer class="phone-footer">
 			<div class="phone-nav-wrap">
 				<div class="content-wrap">				
-					<div class="footer-nav-phone">
+					<nav class="footer-nav-phone">
 						<ul>
 							<li><a href="">Legal notice</a></li>
 							<li><a href="">Privacy policy</a></li>
 							<li><a href="">Site map</a></li>					
 						</ul>
-					</div>
+					</nav>
 					<div class="social-icons-phone">
 						<ul>
 							<li class="icon"><a href=""><img src="img/home/desctop/fb_ico.png" alt=""></a></li>
@@ -251,5 +253,6 @@
 
 <script src="js/common/mobile_menu.js"></script>
 <script src="js/home/carousel.js"></script>
+<script src="js/common/search_tablet.js"></script>
 </body>
 </html>

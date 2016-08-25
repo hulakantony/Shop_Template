@@ -1,3 +1,7 @@
+/*------------------------------------------------------------
+Проверка состояний localStorage, в зависимости 
+от состояние подгружает различный html
+-------------------------------------------------------------*/
 (function(){
 	var container = document.querySelector('.shopping-bag-items .content-wrap');
 	if(localStorage.getItem('isEmpty') === 'true' && localStorage.getItem('newItemAdded') === 'false'){

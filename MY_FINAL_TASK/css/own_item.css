@@ -52,22 +52,6 @@ table {
 					/*------FONTS START-----*/
 
 @font-face {
-    font-family: 'FuturaPT Heavy'; 
-    src: url(fonts/FuturaPTHeavy.otf); 
-   }
-@font-face {
-    font-family: 'FuturaPT Demi'; 
-    src: url(../fonts/FuturaPTDemi.otf); 
-   }
-@font-face {
-    font-family: 'HevleticaNeue Medium'; 
-    src: url(../fonts/helveticaneuecyr-medium.otf); 
-   }
-@font-face {
-    font-family: 'HevleticaNeue Light'; 
-    src: url(../fonts/helveticaneuecyr-light.otf); 
-   }
-@font-face {
     font-family: 'Crimson'; 
     src: url(../fonts/Crimson.otf); 
 }
@@ -97,7 +81,7 @@ header{
 	width: 89.333333%;	
 }
 .logo h1{
-	font-family: 'FuturaPTHeavy', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.875em;
 	font-weight: bold;
 	line-height: 78px;
@@ -114,7 +98,7 @@ ul.menu{
 	margin-right: 5.2%;
 	float: left;
 }
-.menu li:last-child{
+.menu li:nth-child(9){
 	margin-right: 0;
 	float: right;
 	position: relative;
@@ -122,9 +106,15 @@ ul.menu{
 .menu li:nth-child(8){
 	margin-right: 0;
 }
+.menu li:last-child{
+	float: right;
+	margin-right: 0;
+	position: relative;
+	display: none;
+}
 .menu li a{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 0.875em;
 	text-decoration: none;
 	color: #000;	
 	word-wrap: normal;	
@@ -162,7 +152,7 @@ input.search-input{
 	border: none;
 	border-bottom: 2px solid #e5e5e5;
 	width: 118px;
-	font-family: 'FuturaPT Demi', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 0.75em;
 	padding-bottom: 7px;	
 }
@@ -170,6 +160,28 @@ input.search-input{
 	position: absolute;
 	right: 0;
 	top: 5px;
+}
+.search-icon-tablet{	
+	position: absolute;
+	right: 0;
+	top: 5px;
+	display: none;
+}
+.search-for-tablet{
+	display: none;
+	position: absolute;
+	top: 100px;
+	z-index: 99999;
+	right: 0;
+	background: #fff;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+}
+.search-open{
+	display: block;
+}
+.search-for-tablet .search-input{
+	display: block;
 }
 .dropdown-menu-wrap{
 	display: none;
@@ -532,7 +544,12 @@ footer.phone-footer{
 	input.search-input{
 		display: none;
 	}
-		
+	.search-icon-tablet{
+		display: block;
+	}	
+	.menu li:last-child{
+		display: block;
+	}
 	.left-banner, .right-banner, .middle-banner{
 		display: none;
 	}

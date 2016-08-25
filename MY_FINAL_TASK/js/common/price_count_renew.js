@@ -1,3 +1,6 @@
+/*------------------------------------------------------------
+Обновление цены и кол-ва в хэдере
+-------------------------------------------------------------*/
 (function (){
 	var totalPrice = document.querySelector('.total-price');
 	var newHeaderPrice = localStorage.getItem('headerPrice');

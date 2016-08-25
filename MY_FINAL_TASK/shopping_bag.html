@@ -35,8 +35,12 @@
 						<li><a href="">Store Locator</a></li>
 						<li><input type="search" placeholder="Style Name" class="search-input">
 						<a href="" class="search-icon"><img src="img/home/desctop/search_ico.png" alt=""></a></li>
+						<li><a href="" class="search-icon-tablet"><img src="img/home/desctop/search_ico.png" alt=""></a></li>	
 					</ul>
 				</nav>				
+				</div>
+				<div class="search-for-tablet">
+					<input type="search" placeholder="Style Name" class="search-input">
 				</div>				
 			</div>			
 		</header>
@@ -63,17 +67,16 @@
 					<h2>Shopping bag</h2>
 				</div>
 			</section>
-			<section class="shopping-bag-items">
-				<div class="content-wrap">				
-					<arcicle class="item existed">
-						<div class="photo-price remove">
+			<div class="shopping-bag-items">
+				<div class="content-wrap">
+					<div class="item existed">
+						<figure class="photo-price remove">
 							<div class="image-wrap">	
 								<img src="img/shopping_bag/desctop/item_1.jpg" alt="">
-								<div class="hide-photo"></div>
+								<div class="hide-photo"><a href="item.html"></a></div>
 							</div>
 							<p class="item-price">£390.25</p>
-
-						</div>
+						</figure>
 						<div class="item-description remove">
 							<p class="item-name">Only Skinny Jeans</p>
 							<p class="item-color characteristics">Color: <span class="color">Phillipa wash</span></p>
@@ -83,15 +86,15 @@
 								<p>Remove item</p>
 							</a>
 						</div>						
-					</arcicle>
-					<arcicle class="item existed">
-						<div class="photo-price remove">
+					</div>
+					<div class="item existed">
+						<figure class="photo-price remove">
 							<div class="image-wrap">	
 								<img src="img/shopping_bag/desctop/item_2.jpg" alt="">
 								<div class="hide-photo"></div>
 							</div>
 							<p class="item-price remove">£400.75</p>
-						</div>
+						</figure>
 						<div class="item-description remove">
 							<p class="item-name">Paul & Joe Sister Jumper with Neon Trims</p>
 							<p class="item-color characteristics">Color: <span class="color">Blue</span></p>
@@ -101,15 +104,15 @@
 								<p>Remove item</p>
 							</a>
 						</div>						
-					</arcicle>
-					<arcicle class="item existed">
-						<div class="photo-price remove">
+					</div>
+					<div class="item existed">
+						<figure class="photo-price remove">
 							<div class="image-wrap">	
 								<img src="img/shopping_bag/desctop/item_3.jpg" alt="">
 								<div class="hide-photo"></div>
 							</div>
 							<p class="item-price">£849.50</p>
-						</div>
+						</figure>
 						<div class="item-description remove">
 							<p class="item-name">Boyfriend T-Shirt with Bohemian Print</p>
 							<p class="item-color characteristics">Color: <span class="color">Black</span></p>
@@ -119,15 +122,15 @@
 								<p>Remove item</p>
 							</a>
 						</div>					
-					</arcicle>
-					<arcicle class="item existed">
-						<div class="photo-price remove">
+					</div>
+					<div class="item existed">
+						<figure class="photo-price remove">
 							<div class="image-wrap">	
 								<img src="img/shopping_bag/desctop/item_4.jpg" alt="">
 								<div class="hide-photo"></div>
 							</div>
 							<p class="item-price">£176.35</p>
-						</div>
+						</figure>
 						<div class="item-description remove">
 							<p class="item-name">Turtle Neck Jumper in Rib</p>
 							<p class="item-color characteristics">Color: <span class="color">Green</span></p>
@@ -137,10 +140,10 @@
 								<p>Remove item</p>
 							</a>							
 						</div>						
-					</arcicle>
+					</div>
 				</div>
-			</section>
-			<section class="shopping-bag-operations">
+			</div>
+			<div class="shopping-bag-operations">
 				<div class="about-delivery">
 					<div class="content-wrap">
 						<p>You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code nexday at checkout</p>
@@ -155,7 +158,7 @@
 								</a>
 							</li>
 							<li class="button-wrap">
-								<button class="buy-now-btn">Buy now</button>
+								<button class="buy-now-btn button">Buy now</button>
 							</li>
 							<li class="total-price-wrap">
 								<p class="total-text">Total Cost</p>
@@ -164,7 +167,7 @@
 						</ul>						
 					</div>
 				</div>
-			</section>
+			</div>
 			<section class="info-wrap">				
 					<div class="phone-wrap-first">
 						<div class="content-wrap">
@@ -273,5 +276,6 @@
 <script src="js/shopping_bag/addItem_removeAll.js" defer></script>
 <script src="js/shopping_bag/existed_item_remove.js" defer></script>
 <script src="js/common/mobile_menu.js"></script>
+<script src="js/common/search_tablet.js"></script>
 </body>
 </html>
