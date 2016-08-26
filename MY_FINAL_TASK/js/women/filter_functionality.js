@@ -325,15 +325,31 @@ function shiftOnClick(){
 		var valuesContainerPosition = getCoords(valuesContainer).left;
 		if(value.classList.contains('selected')){			
 			valuesContainer.style.left = valuesContainerPosition - valuePosition + contentLeftPosition + 'px';			
-		}		
+		}	
+
 	}	
 }
 /*------------------------------------------------------------
 Клик событие на открытие модального окна с фильтром
 -------------------------------------------------------------*/	
-filterTablet.onclick = function(){	
-	filterModal.classList.toggle('pressed');	
+var contentWrap = document.querySelector('.content-wrap');
+var scrollHeightBlock = document.querySelector('.height-scroll');
+filterTablet.onclick = function(){		
+	filterModal.classList.toggle('pressed');
+	if(filterModal.classList.contains('pressed')){
+		filterModal.style.top = filterTablet.getBoundingClientRect().bottom + window.pageYOffset;
+		filterModal.style.overflowY = 'auto';
+		document.addEventListener('scroll', removeScroll);		
 	shiftOnClick();		
+	} else {
+		document.removeEventListener('scroll', removeScroll);
+		filterModal.style.position = '';
+		filterModal.style.top = '';
+		filterModal.style.overflowY = '';
+		contentWrap.style.width = '';
+		scrollHeightBlock.style.left = '800px';
+
+	}
 }
 /*------------------------------------------------------------
 Назначаю обработчики
@@ -350,3 +366,7 @@ var selection = document.querySelectorAll('.select-filter li a');
 
 //------------------------------------------------------------
 
+function removeScroll(e){
+	e.preventDefault();
+	return false;
+}

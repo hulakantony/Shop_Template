@@ -355,7 +355,7 @@ input.search-input{
 .bag-items li{
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: -4px;
+	margin-right: -5px;
 }
 .bag-items li:last-child{
 	margin-right: 0;

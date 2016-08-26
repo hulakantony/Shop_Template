@@ -295,6 +295,7 @@ input.search-input{
 .tablet-filter-wrap{
 	display: none;
 }
+/*Filter for tablet/mobile */
 .filter-tablet{
 		height: 65px;
 		border-top: 1px solid #e5e5e5;
@@ -364,7 +365,7 @@ input.search-input{
 	position: absolute;
 	height: 670px;
 	width: 100%;
-	overflow: hidden;
+	overflow: hidden;		
 	display: none;
 	z-index: 9999;
 	background: #fff;
@@ -397,6 +398,9 @@ input.search-input{
 	-o-transition:left .3s ease;
 	-ms-transition:left .3s ease;
 	transition:left .3s ease; 	
+}
+.height-scroll{
+	height: 1050px;
 }
 .not-selected{
 	color: #000;
@@ -823,8 +827,8 @@ footer.phone-footer{
 
 	.filter-tablet{
 		display: block;
-	}
-
+	}	
+	
 	.left-banner, .right-banner, .middle-banner{
 		display: none;
 	}
@@ -1122,7 +1126,10 @@ footer.phone-footer{
 	.transparent-gradient-tablet{
 		display: none;
 	}
-		
+	/*уменьшаем прокрутку*/
+	.height-scroll{
+		height: 900px;
+	}	
 	.tablet-filter-wrap .phone-filter-image{
 		margin-top: 25px;
 		float: right;

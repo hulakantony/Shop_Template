@@ -235,13 +235,26 @@ input.search-input{
 	text-align: right;
 }
 .thumbs li{
-	width: 100%;	
+	width: 100%;
+	position: relative;	
 }
 .thumbs li:nth-of-type(2), .thumbs li:nth-of-type(3){
 	margin-top: 20px;	
 }
 .thumbs li img{
 	width: 100%;	
+}
+.darkness{
+	position: absolute;
+	width: 100%;
+	height: 98%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0, 0.6);
+	display: none;
+}
+.get-dark{
+	display: block;
 }
 .used-thumb{
 	-webkit-filter: brightness(40%);
